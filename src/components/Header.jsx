@@ -15,10 +15,10 @@ export default function Header({ compact }) {
       </a>
       <nav aria-label="Primary navigation">
         <a href="#engineering">Engineering</a>
+        <a href="#process">Process</a>
         <a href="#performance">Performance</a>
-        <a href="#design">Design</a>
       </nav>
-      <a className="header-cta" href="#contact">Configure the drive <span aria-hidden="true">↗</span></a>
+      <a className="header-cta" href="#engineering">Inspect the system <span aria-hidden="true">↓</span></a>
     </header>
   )
 }

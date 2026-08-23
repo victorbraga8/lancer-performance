@@ -22,8 +22,8 @@ export default function App() {
       <main>
         <Hero />
         <WheelSequence />
-        <Performance />
         <DesignLanguage />
+        <Performance />
         <FinalCta />
       </main>
     </div>

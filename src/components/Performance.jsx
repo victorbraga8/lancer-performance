@@ -9,9 +9,9 @@ export default function Performance() {
   return (
     <section className="performance section-pad" id="performance">
       <div className="section-heading">
-        <p className="eyebrow"><span /> Performance system</p>
-        <h2>Capability is nothing<br />without <em>control.</em></h2>
-        <p>Every discipline is designed to feel connected — not isolated.</p>
+        <p className="eyebrow"><span /> Performance consequence</p>
+        <h2>Response is built<br /><em>from within.</em></h2>
+        <p>The vehicle's character is the visible result of a connected mechanical system.</p>
       </div>
 
       <div className="discipline-grid">

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "mode": "REFINE",
+  "status": "COMPLETED",
+  "units": [
+    {
+      "id": "validation-build",
+      "expectedOutput": "Build Vite aprovado",
+      "capability": "codingAgent",
+      "status": "COMPLETED"
+    },
+    {
+      "id": "validation-browser",
+      "expectedOutput": "QA desktop, mobile e reduced motion",
+      "capability": "browserVerification",
+      "status": "COMPLETED"
+    },
+    {
+      "id": "localized-fixes",
+      "expectedOutput": "Somente correções comprovadas pelos checks",
+      "capability": "codingAgent",
+      "status": "COMPLETED"
+    }
+  ]
+}

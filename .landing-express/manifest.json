@@ -1,0 +1,10 @@
+{
+  "version": "0.1.0",
+  "productStage": "v1",
+  "mode": "direction-and-build-orchestrator",
+  "runtimes": [
+    "claude",
+    "codex"
+  ],
+  "updatedAt": "2026-08-23T01:11:37.329Z"
+}

@@ -1,6 +1,6 @@
 export default function FinalCta() {
   return (
-    <section className="final-cta" id="contact">
+    <section className="final-cta" id="closing">
       <img
         className="cta-background"
         src="/assets/higgsfield/lancer-rear-cta.png"
@@ -10,9 +10,9 @@ export default function FinalCta() {
         draggable="false"
       />
       <div className="cta-line" aria-hidden="true" />
-      <p className="eyebrow"><span /> The next movement</p>
-      <h2>Built to be felt.<br /><em>Ready to be driven.</em></h2>
-      <p>Step closer to the Lancer performance concept.</p>
+      <p className="eyebrow"><span /> The complete system</p>
+      <h2>Every response<br /><em>starts within.</em></h2>
+      <p>Return to the beginning and inspect the architecture again.</p>
       <a className="primary-button" href="#hero">
         <span>Return to the machine</span><i aria-hidden="true">↗</i>
       </a>

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "REFINE",
+  "status": "COMPLETED",
+  "completedAt": "2026-08-22T22:57:23.4078072-03:00",
+  "preservationContract": "refinement-prompt.md",
+  "capabilities": {
+    "codingAgent": "PASS",
+    "browserVerification": "PASS",
+    "higgsfield": "NOT_USED_BY_OVERRIDE"
+  },
+  "sourceFilesChanged": [
+    "src/components/WheelSequence.jsx",
+    "src/styles.css"
+  ],
+  "validation": {
+    "viteBuild": "PASS",
+    "gitDiffCheck": "PASS_WITH_LINE_ENDING_WARNINGS",
+    "desktop": {
+      "heroTitleMaxTwoLines": true,
+      "horizontalOverflow": false,
+      "sequenceCopyReadable": true
+    },
+    "mobile": {
+      "heroTitleMaxTwoLines": true,
+      "horizontalOverflow": false,
+      "activeAnnotationVisible": true
+    },
+    "reducedMotion": {
+      "prototypeHidden": true,
+      "finalStillVisible": true,
+      "fullArchitectureFramedOnMobile": true,
+      "horizontalOverflow": false
+    }
+  },
+  "generationBudget": {
+    "consumedCredits": 0,
+    "remainingCredits": 3.8
+  },
+  "acceptedPending": {
+    "assetId": "A01",
+    "implementation": "static-still-plus-svg",
+    "reason": "Temporary user-approved capability and budget constraint",
+    "regenerationAttempted": false
+  },
+  "evidence": [
+    "qa-desktop-full.png",
+    "qa-sequence-mid-refined.png",
+    "qa-mobile-hero.png",
+    "qa-mobile-sequence-final-refined.png",
+    "qa-reduced-motion.png"
+  ]
+}

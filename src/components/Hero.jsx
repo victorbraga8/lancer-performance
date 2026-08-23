@@ -6,21 +6,23 @@ export default function Hero() {
       <p className="hero-ghost" aria-hidden="true">LANCER</p>
 
       <div className="hero-copy">
-        <p className="eyebrow"><span /> Performance, evolved</p>
-        <h1>Engineered<br />to <em>respond.</em></h1>
+        <p className="eyebrow"><span /> Mechanical architecture / 001</p>
+        <h1>
+          <span className="hero-title-line">Engineered to</span>
+          <span className="hero-title-line"><em>respond.</em></span>
+        </h1>
         <p className="hero-intro">
-          A study in controlled force. Every surface, system and movement tuned
-          around the driver.
+          Performance begins inside the assembly. Follow the load path from
+          contact patch to suspension response.
         </p>
         <a className="text-link" href="#engineering">
-          Deconstruct the performance <span aria-hidden="true">↓</span>
+          Deconstruct the system <span aria-hidden="true">↓</span>
         </a>
       </div>
 
       <div className="hero-meta" aria-label="Concept information">
-        <div><small>Discipline</small><strong>Precision</strong></div>
-        <div><small>Character</small><strong>Uncompromised</strong></div>
-        <div><small>Edition</small><strong>Concept 01</strong></div>
+        <div><small>Focus</small><strong>Wheel / suspension</strong></div>
+        <div><small>Sequence</small><strong>Scroll controlled</strong></div>
       </div>
 
       <div className="car-stage">
@@ -32,7 +34,7 @@ export default function Hero() {
           fetchPriority="high"
           draggable="false"
         />
-        <p className="concept-label">Higgsfield generation · Concept visualization</p>
+        <p className="concept-label">Concept visualization · Mechanical study</p>
       </div>
 
       <div className="scroll-cue" aria-hidden="true">
