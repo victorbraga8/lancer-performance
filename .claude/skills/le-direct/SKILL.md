@@ -1,27 +1,39 @@
 ---
 name: le-direct
-description: "[CLI/IDE] Landing Express Direction Copilot. Conduz intenção até direção executável, registra a sessão e prepara o Build Orchestrator. Não constrói a landing nesta ação."
+description: "[COMPAT/INTERNAL] Rota NEW_INTERACTION do Copilot Editorial Web Cinematic / Web Premium."
 ---
 
 # Landing Express — le-direct
 
-Leia, nesta ordem:
+Rota interna/legada. O fluxo normal entra por `le-start → Nova interação`.
 
-1. `.landing-express/core.md`
-2. `.landing-express/DIRECTION-V1-ADDENDUM.md`
-3. `.landing-express/BUILD-PROMPT-CONTRACT.md`
-4. `.landing-express/BUILD-PROMPT-V1-ADDENDUM.md`
-5. `.landing-express/MODEL-GATE.md`
-6. `.landing-express/capabilities.json`
+Antes de criar sessão ou carregar contexto amplo:
 
-O core v0 continua sendo a base de comportamento. O addendum V1 apenas amplia a direção para execução governada; não remova ou simplifique as regras v0.
+1. detecte model/effort ativos da sessão Claude conforme `RUNTIME-IDENTITY.md`;
+2. rode gate `NEW_INTERACTION`;
+3. se bloquear, aplique `GATE-RECOVERY.md` e retome esta mesma ação quando o usuário enviar `Continuar`;
+4. só PASS/override autoriza criação da sessão e reasoning material.
 
-A conversa deve ser guiada e reativa, não um questionário. Se houver implementação existente, classifique GREENFIELD / EVOLUTION / VISUAL REFACTOR / REBUILD e inspecione o que precisa ser preservado.
+Depois do gate, use `SESSION-LIFECYCLE.md` como contrato central e carregue apenas o necessário entre `EDITORIAL-INTERPRETER.md`, `STYLE-INTERPRETER.md`, `VISUAL-INTERPRETER.md`, `STACK-AWARE-ROUTING.md`, `SUGGESTION-POLICY.md`, `EXPERIENCE-QUALITY.md`, `GENERATED-MEDIA-POLICY.md`, `CONCEPTION-STATE.md`, `ENRICHMENT-CHECKPOINT.md`, `FINALIZATION-GATE.md`, `PROMPT-COMPILER.md`, `PROMPT-EXECUTION.md` e `POST-PROMPT-DECISION.md`.
 
-O usuário pode fazer perguntas durante o fluxo; responda e retome do mesmo Direction State.
+Crie nova Session ID, inicialize enrichment 0/3 e pergunte exatamente:
 
-Ao fechar a direção, execute Drift Review, Anti-Flop Review, Asset Delivery/Visual Integration checks, capability requirements e model/effort recommendation.
+```text
+O que você gostaria de fazer?
+```
 
-Persista a sessão em `.landing-express/sessions/<id>/` com `direction.md`, `build-prompt.md`, `execution-manifest.json`, `session.json` e `events.jsonl`; atualize `.landing-express/current.json`.
+Conduza intenção → editorial → style grammar → visual por section → sugestão contextual → stack-aware technical routing quando material → Conception State seletivo.
 
-Não gere assets nem implemente código nesta ação.
+Não transfira escolha de library ao usuário. Inspecione a stack real antes de recomendar nova dependência.
+
+Ao atingir readiness, use enrichment/finalization, rode gate `PROMPT_COMPILE`, gere prompt imutável e calcule a recomendação `PROMPT_EXECUTION` pela complexidade real do prompt.
+
+Em `PROMPT READY`:
+
+```text
+1. Executar prompt
+2. Refine
+3. Finalizar (`le-end`)
+```
+
+`Executar prompt` exige novo runtime detection + gate `PROMPT_EXECUTION` antes de qualquer mutação. Ao terminar, mostre `Refine | Finalizar`; nunca conclua automaticamente.

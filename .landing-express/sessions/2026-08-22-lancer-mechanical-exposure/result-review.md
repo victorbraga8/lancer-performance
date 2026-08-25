@@ -1,5 +1,135 @@
 # Landing Express — Result Review
 
+## Review atual — 2026-08-24
+
+### Decisão
+
+**REFINE**
+
+O refine de build, responsividade, sequência e reduced motion cumpriu o contrato localizado. O único gap aberto observado é o estado atual da navegação contextual do header: os links de Engineering, Process e Performance não expõem `aria-current` nem feedback visual persistente de localização.
+
+O A01 estático + SVG permanece conscientemente adiado por override do usuário e não deve ser regenerado neste ciclo. A ausência histórica de Direction State e Build Prompt limita a rastreabilidade da sessão recuperada, mas não justifica redesenho nem invalida as evidências atuais.
+
+### Limites da evidência
+
+- `direction.md` e `build-prompt.md` não existem nesta sessão recuperada; o contrato disponível é composto pelo review anterior, `refinement-prompt.md`, manifesto, plano, resultado e logs.
+- Foram inspecionados diretamente os cinco screenshots persistidos, mas não foi executada nova comparação automatizada nem novo browser QA.
+- Nenhum runtime, preview ou build foi iniciado durante este review.
+- O build e o browser QA são evidências persistidas da execução anterior, não validações repetidas em 2026-08-24.
+
+### Model / Effort Gate
+
+```text
+Action: le-review
+Complexity: MEDIUM
+Score: 44%
+Recommended: gpt-5.6-terra + medium
+Active: GPT-5 + effort UNKNOWN
+Status: UNKNOWN
+Reason: a decisão exige comparação visual e contratual, mas não envolve nova direção, implementação ou geração.
+```
+
+### EXPECTED vs ACTUAL
+
+| Área | Expected | Actual | Status |
+| --- | --- | --- | --- |
+| Direção visual/editorial | Engenharia como autoridade, performance como consequência | Hierarquia, copy e ordem narrativa permanecem coerentes nos screenshots e componentes | PASS |
+| Global Experience Baseline | Navegação contextual com estado atual perceptível | Links são semânticos e operáveis, mas não há `aria-current` nem estado visual persistente | PARTIAL |
+| Semantic Hierarchy Map | Narrativa e ações com hierarquia clara | Hierarquia visual está clara; mapa formal indisponível na sessão recuperada | PASS visual / SPEC GAP documental |
+| Section Enrichment Map | Enriquecimento proporcional à função | Hero, sequência, processo, performance e fechamento têm focos distintos sem mídia gratuita | PASS visual / mapa indisponível |
+| Complexity / Creativity Budget | Um foco primário reconhecível por seção | Não há competição material entre mecânicas; a sequência permanece o foco interativo principal | PASS visual / mapa indisponível |
+| Transition Map | Handoffs editoriais coerentes | Paleta, grids, tipografia e narrativa preservam continuidade; full-page screenshot tem artefato esperado da seção sticky | PASS visual / mapa indisponível |
+| Motion Capability Map | Modalidade vinculante ou override explícito | SVG + still foi mantido por override explícito, com scroll determinístico e reduced motion estático | PASS para o contrato atual |
+| Visual Integration Contract | A01 legível no contexto grafite | Frame final está integrado e legível em desktop, mobile e reduced motion | PASS |
+| Asset modalidade/provider | Sem fallback silencioso | Still Higgsfield/Nano Banana Pro permanece documentado como desvio temporário aprovado | DEFERRED / USER-ACCEPTED |
+| Motion/interação | Timeline previsível e hold final legível | Evidências registradas e screenshots mostram estágios, progresso e composição final legíveis | PASS |
+| Hard constraints | Hero em até duas linhas, sem overflow, reduced motion seguro | Evidências desktop/mobile/reduced motion cumprem os critérios | PASS |
+| Preservation scope | Somente gaps comprovados; sem regeneração ou refactor amplo | Alterações anteriores ficaram em `WheelSequence.jsx` e `styles.css`; direção e asset foram preservados | PASS |
+| Capability, budget e retries | Nenhum gasto no refine aprovado | Higgsfield não foi chamado; 0 crédito consumido; saldo registrado em 3,8 | PASS |
+| Acceptance criteria do refine | Build e QA aprovados, pendência A01 documentada | Manifesto, resultado, logs e screenshots registram cumprimento | PASS |
+
+### Findings materiais
+
+#### F1 — Navegação sem estado atual
+
+- **Finding:** os links contextuais do header não indicam qual seção está ativa.
+- **Classification:** `EXECUTION GAP` + `REFINEMENT GAP`.
+- **Severity:** `BLOCKING FOR FULL ACCEPTANCE`.
+- **State:** `OPEN`.
+- **Evidence:** `Header.jsx` renderiza três anchors sem `aria-current`; `styles.css` define apenas o underline de hover; o screenshot desktop mostra os três links no mesmo estado.
+- **Affected contract:** Global Experience Baseline / Navigation state e Semantic Hierarchy / Recurring control coherence.
+- **Recommended treatment:** refine localizado para resolver a seção ativa fora do componente presentational, passar um identificador explícito ao header e aplicar `aria-current="location"` com feedback visual coerente.
+
+#### F2 — Artefatos obrigatórios de direção ausentes
+
+- **Finding:** Direction State, Build Prompt e os mapas V1.1 não estão disponíveis para comparação literal.
+- **Classification:** `SPEC GAP`.
+- **Severity:** `NON-BLOCKING FOR PARTIAL REFINE`.
+- **State:** `DEFERRED` por sessão recuperada.
+- **Evidence:** `session.json` declara `artifactCompleteness: PARTIAL` e lista `direction.md` e `build-prompt.md` como ausentes.
+- **Affected contract:** handoff artifacts de Calibration V1.1.
+- **Recommended treatment:** não fabricar decisões retroativas; manter os contratos recuperados como fonte deste ciclo e exigir os mapas em novas sessões de direction.
+
+#### F3 — Modalidade cinematográfica A01 adiada
+
+- **Finding:** a modalidade originalmente desejada de vídeo/frame sequence continua substituída por still + SVG.
+- **Classification:** `CONSTRAINT GAP` + `USER OVERRIDE`.
+- **Severity:** `NON-BLOCKING FOR PARTIAL REFINE`.
+- **State:** `DEFERRED / USER-ACCEPTED`.
+- **Evidence:** manifesto, resultado e logs registram plano/capacidade insuficientes, override explícito e zero regenerações neste refine.
+- **Affected contract:** asset A01 e Motion Capability Map recuperado.
+- **Recommended treatment:** preservar o override; reabrir regeneração somente por nova decisão explícita com capability e budget suficientes.
+
+#### F4 — Gaps do refine anterior
+
+- **Finding:** build, responsividade, legibilidade da sequência e reduced motion precisavam de validação/correção localizada.
+- **Classification:** `EXECUTION GAP` + `REFINEMENT GAP`.
+- **Severity:** `NON-BLOCKING FOR PARTIAL REFINE`.
+- **State:** `RESOLVED`.
+- **Evidence:** `execution-result.json`, eventos e cinco screenshots persistidos.
+- **Affected contract:** `refinement-prompt.md`.
+- **Recommended treatment:** preservar o resultado atual.
+
+### Execution Economy Decision
+
+```text
+Unit: estado atual da navegação contextual
+Quality floor: localização perceptível e semântica sem alterar a direção visual
+Options considered: estado programático localizado; redesign do header; nenhuma correção
+Selected: estado programático localizado com API explícita para o Header
+Why: resolve o único gap aberto com controle determinístico e baixo risco de regressão
+Cost drivers: baixo custo de implementação; nenhum tool cost; nenhum generation budget; baixo retry risk
+Economy-motivated: YES
+```
+
+### Preservation Contract para o próximo refine
+
+#### PRESERVE
+
+- Todo o visual, copy, assets, seções, ordem narrativa e breakpoints atuais.
+- Hero em duas linhas e CTAs existentes.
+- Sequência SVG → still, seus cinco estágios, rail, anotações e reduced motion.
+- A01 exatamente como está e o override temporário documentado.
+- Dependências, rotas e arquivos fora do header/orquestração do estado atual.
+
+#### CHANGE ONLY
+
+- Resolver a seção contextual ativa para `engineering`, `process` e `performance` em uma camada de orquestração client-side focada.
+- Passar ao `Header` somente o identificador ativo necessário; o componente deve continuar presentational.
+- Aplicar `aria-current="location"` apenas ao link correspondente.
+- Reutilizar a linguagem visual existente para um estado persistente perceptível, sem depender somente de cor e sem alterar o hover existente.
+- Validar ausência de listeners duplicados, cleanup correto e preservação de desktop/mobile.
+
+### Handoff
+
+- **Current state:** `REFINE`.
+- **Next action:** `$le-build` em localized refine usando `refinement-prompt-navigation.md`.
+- **Reason:** a experiência está materialmente alinhada, restando apenas o feedback contextual da navegação.
+
+---
+
+## Histórico — review recuperado anterior
+
 ## Classificação
 
 **REGENERATE**

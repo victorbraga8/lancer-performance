@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "2026-08-25-1846-new-interaction",
+  "status": "COMPLETED",
+  "completedAt": "2026-08-25T19:01:00.000Z",
+  "promptVersion": 1,
+  "refineCount": 0,
+  "recommendedModel": "gpt-5.6-sol",
+  "recommendedEffort": "high"
+}

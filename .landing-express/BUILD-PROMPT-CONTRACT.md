@@ -1,94 +1,146 @@
-# Build Prompt Contract — v0
+# Build Prompt Contract — V1.2
 
-Este arquivo define a forma mínima esperada do prompt final produzido pelo Landing Express Direction Copilot.
+This contract defines the semantic content expected from the Landing Express Prompt Compiler. `PROMPT-COMPILER.md` defines the executable compilation/versioning lifecycle.
 
-Ele não é um template para preencher mecanicamente. Se uma seção não fizer sentido para o projeto, ela pode ser omitida. Se uma decisão estiver intencionalmente aberta, isso deve ser declarado em vez de inventado.
+The final prompt is compiled from the **structured Conception State**, never from raw transcript.
 
-## Estrutura
+## 1. Preconditions
+
+Compilation is forbidden until:
+
+```text
+Conception state: CONCEPTION READY
+Enrichment Checkpoint: resolved for consolidation
+Finalization Gate: PASS
+MODEL / EFFORT GATE: PROMPT_COMPILE = PASS | OVERRIDDEN
+```
+
+These conditions are independent. A gate from START, NEW_INTERACTION, RESUME or ENRICHMENT never authorizes PROMPT_COMPILE.
+
+## 2. Source of truth
+
+Primary source:
+
+```text
+.landing-express/sessions/<session-id>/conception-state.json
+```
+
+Consume only current valid material decisions. Remove obsolete/superseded context. Preserve explicitly accepted intentional ambiguity instead of inventing a solution.
+
+Do not copy transcript noise, rejected alternatives or stale discussion into the prompt.
+
+## 3. Prompt structure
+
+Include only relevant sections from this repertoire:
 
 ```text
 ROLE / EXECUTION MODE
-Defina o papel do executor e deixe claro que a direção já está aprovada. O executor deve implementar, não reinventar a concepção.
-
 BUILD OBJECTIVE
-O que será construído e qual resultado a experiência deve produzir.
-
-HARD CONSTRAINTS
-Stack, restrições, requisitos obrigatórios, limites de performance, mobile, acessibilidade ou outras regras fixas.
-
 BUSINESS / CONVERSION INTENT
-Oferta, público, ação desejada e contexto comercial relevante.
-
-EXPERIENCE DIRECTION
-A síntese da experiência: identidade, narrativa e comportamento esperado.
-
+EXPERIENCE / EDITORIAL DIRECTION
 DESIRED PERCEPTION
-Como a experiência deve ser percebida e como essa percepção se traduz em decisões concretas.
-
-VISUAL GRAMMAR
-Regras de cor, contraste, superfícies, cards, profundidade, glass, mesh, gradientes, bordas, radius, tipografia, imagens, espaçamento e composição.
-
-GLOBAL UI/UX RULES
-Hierarquia, navegação, CTA, comportamento de componentes, agrupamento e legibilidade.
-
 NARRATIVE FLOW
-Como a história progride da entrada até a conversão.
-
-HERO MECHANIC
-Mecânica dominante, se existir, com papel e limites claros.
-
-MOTION LANGUAGE
-Ritmo, velocidade, easing, continuidade, comportamento de hover e regras globais de movimento.
-
-INTERACTION RULES
-O que é controlado por scroll, hover, click, autoplay ou outras interações. Declare explicitamente quando scroll é a timeline da animação.
-
+VISUAL GRAMMAR
 SECTION-BY-SECTION STORYBOARD
-Para cada section relevante:
-- propósito;
-- conteúdo;
-- composição;
-- estado visual;
-- motion;
-- interação;
-- assets;
-- transição de entrada e saída.
-
-ASSET MANIFEST
-Todo asset gerado deve possuir ID, destino, função, obrigatoriedade e uso previsto.
-
-GENERATED ASSET / HIGGSFIELD DIRECTIONS
-Para cada asset aplicável:
-- sujeito;
-- estado inicial e final;
-- câmera;
-- movimento de câmera;
-- movimento do sujeito/componentes;
-- iluminação;
-- ambiente/background;
-- continuidade;
-- invariantes de framing;
-- elementos proibidos;
-- forma de consumo no front-end.
-
-GENERATION BUDGET
-Número máximo de gerações planejadas por asset e condições objetivas que justificam retry.
-
-RESPONSIVE / MOBILE BEHAVIOR
-Como preservar intenção, hierarquia, interação e narrativa no mobile.
-
-PROHIBITED PATTERNS
-Padrões que quebram a direção aprovada ou representam risco previsível de AI Flop.
-
+CINEMATIC DIRECTION
+MOTION LANGUAGE
+INTERACTION RULES
+HARD CONSTRAINTS
+PRESERVE
 IMPLEMENTATION INTENT
-Orientação suficiente para a construção sem transformar o prompt em código ou arquitetura inventada.
-
+RESPONSIVE / MOBILE BEHAVIOR
+GENERATED MEDIA / ASSET DIRECTIONS
+PROHIBITED PATTERNS
 VALIDATION / ACCEPTANCE CRITERIA
-Critérios objetivos e perceptivos que devem ser satisfeitos antes de considerar a landing concluída.
+INTENTIONALLY OPEN DECISIONS
 ```
 
-## Regra central
+Do not emit empty headings mechanically.
 
-O executor deve receber liberdade para resolver detalhes de implementação, mas não para redefinir decisões de direção já aprovadas.
+## 4. Conception-state mapping
 
-O prompt final deve reduzir ambiguidade em pontos que geram falha previsível e preservar liberdade onde criatividade ainda agrega valor.
+Typical mapping:
+
+- `INTENT` → BUILD OBJECTIVE;
+- `AUDIENCE` → BUSINESS / CONVERSION INTENT;
+- `EDITORIAL` → EXPERIENCE / EDITORIAL DIRECTION;
+- `NARRATIVE` → NARRATIVE FLOW;
+- `VISUAL_DIRECTION` + `STYLE` + `GLASS_DEPTH_LIGHTING_MATERIALS` → VISUAL GRAMMAR;
+- `SECTIONS` → SECTION-BY-SECTION STORYBOARD;
+- `CINEMATIC_OPPORTUNITIES` → CINEMATIC DIRECTION;
+- `INTERACTIONS` → INTERACTION RULES;
+- `MOTION` → MOTION LANGUAGE;
+- `THREE_D` + `TECHNICAL_REQUIREMENTS` → IMPLEMENTATION INTENT / CINEMATIC DIRECTION;
+- `CONSTRAINTS` → HARD CONSTRAINTS;
+- `PRESERVE` → PRESERVE;
+- accepted `OPEN_DECISIONS` → INTENTIONALLY OPEN DECISIONS.
+
+Compile semantic instructions; do not mechanically dump JSON.
+
+## 5. Executor independence
+
+The compiled prompt must be understandable by a coding agent **without access to the original conversation**.
+
+It must preserve enough material context to implement correctly while avoiding conversational history that does not affect execution.
+
+The executor may solve implementation details that remain intentionally flexible, but must not reinterpret approved editorial/visual direction.
+
+## 6. Generated media
+
+Generated media remains governed by `GENERATED-MEDIA-POLICY.md`.
+
+Do not add Higgsfield or another provider merely because the experience is Web Cinematic. When generated media is actually required, preserve its purpose, destination, framing/continuity expectations, usage and generation budget.
+
+## 7. Versioning
+
+Each successful compilation produces a new immutable session artifact:
+
+```text
+prompt-v1.md
+prompt-v2.md
+prompt-v3.md
+...
+```
+
+Never overwrite a previous version. Persist the current pointer/metadata in `prompt-current.json`.
+
+## 8. Model / effort
+
+### Compilation gate
+
+Before compilation, `PROMPT_COMPILE` must pass its own Model/Effort Gate.
+
+### Final prompt recommendation
+
+After compilation, compute a separate recommendation using the **actual compiled prompt** plus its current Conception State.
+
+Consider material complexity such as specification breadth, sections, cinematic/3D demands, motion/interactions, constraints, technical requirements, accepted ambiguity and prompt density.
+
+Resolve model/effort through the centralized Reasoning Adapter mapping. Do not hardcode or invent native selectors. When resolution is unavailable, return `UNKNOWN`, not a generic fake label.
+
+## 9. PROMPT READY
+
+Successful output is:
+
+```text
+PROMPT READY
+
+Prompt: <prompt compilado>
+Recommended model: <modelo nativo | UNKNOWN>
+Recommended effort: <effort nativo | UNKNOWN>
+```
+
+The prompt is the principal endpoint of the interaction.
+
+Do not start implementation automatically after PROMPT READY.
+
+## 10. Post-prompt choice
+
+Immediately offer:
+
+```text
+1. Refine
+2. Finalizar (`le-end`)
+```
+
+Do not start Refine automatically. Enrichment is pre-prompt conception work; Refine is post-prompt work on an already compiled prompt and will eventually produce a new prompt version.

@@ -1,30 +1,25 @@
 ---
 name: le-build
-description: "[CLI/IDE] Executa a experiência já roteirizada pela Landing Express V1. Faz preflight real de capabilities, respeita modalidade/budget/fallback e registra a execução."
+description: "[LEGACY/COMPAT] Handoff do prompt atual; não é a ação oficial de execução V1.2."
 ---
 
 # Landing Express — le-build
 
-Leia `.landing-express/BUILD-ORCHESTRATOR.md`, `.landing-express/CAPABILITY-CONTRACT.md`, `.landing-express/MODEL-GATE.md`, `.landing-express/capabilities.json` e a sessão indicada por `.landing-express/current.json`.
+`le-build` permanece somente por compatibilidade. Não dependa de `BUILD-ORCHESTRATOR.md` e não trate este comando como etapa obrigatória.
 
-Execute o Build Orchestrator exatamente.
+Quando houver `PROMPT READY`, apresente `prompt-vN.md` e sua recomendação. Este comando não altera o produto, gera assets, roda build/deploy ou executa silenciosamente.
 
-Antes de alterar arquivos, mostre um preflight curto em português com:
+A execução oficial V1.2 acontece dentro da interação pela opção `Executar prompt`, governada por `PROMPT-EXECUTION.md` e pelo gate `PROMPT_EXECUTION`.
 
-- Status geral: READY ou BLOCKED;
-- modelo/effort recomendado e active quando observável;
-- coding agent;
-- cada capability requerida;
-- Higgsfield quando referenciado;
-- política de fallback;
-- Generation Budget relevante.
+Saída preferida:
 
-Uma capability `surface-tool` só é PASS se você realmente possui essa ferramenta disponível nesta execução. Configuração não equivale a conexão.
+```text
+PROMPT READY
 
-Se um asset exige Higgsfield e a ferramenta Higgsfield não está disponível, BLOCKED. Não substitua por SVG, vetores, CSS, imagem estática ou outro gerador sem override explícito.
+Prompt atual: vN
+Artefato: <prompt-vN.md>
 
-Respeite required modality e Visual Integration Contract. Em refines, aplique Preservation Contract e mude somente o escopo autorizado.
-
-Registre eventos sem segredos e sem chain-of-thought privada.
-
-Ao concluir, retorne COMPLETED/PARTIAL/BLOCKED, resumo das mudanças, tools realmente usadas, consumo de budget e próximo passo `/le-review`.
+1. Executar prompt
+2. Refine
+3. Finalizar (`le-end`)
+```

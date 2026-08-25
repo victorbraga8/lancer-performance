@@ -1,31 +1,22 @@
-import { useEffect, useState } from 'react'
-import Header from './components/Header'
-import Hero from './components/Hero'
-import WheelSequence from './components/WheelSequence'
-import Performance from './components/Performance'
-import DesignLanguage from './components/DesignLanguage'
-import FinalCta from './components/FinalCta'
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import Performance from "./components/Performance";
+import DesignLanguage from "./components/DesignLanguage";
+import FinalCta from "./components/FinalCta";
+import useHeaderNavigationState from "./hooks/useHeaderNavigationState";
 
 export default function App() {
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 32)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  const { compact, activeSection } = useHeaderNavigationState();
 
   return (
     <div className="site-shell">
-      <Header compact={scrolled} />
+      <Header compact={compact} activeSection={activeSection} />
       <main>
         <Hero />
-        <WheelSequence />
         <DesignLanguage />
         <Performance />
         <FinalCta />
       </main>
     </div>
-  )
+  );
 }

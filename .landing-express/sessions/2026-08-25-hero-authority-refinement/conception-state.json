@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "2026-08-25-hero-authority-refinement",
+  "INTENT": "Remover a seção/arquitetura WheelSequence (já desativada) e todo código órfão associado; simplificar a Hero para uma única linha de piso junto à roda; elevar luz/composição visual da Hero; dar cor/relevância aos itens Focus/Sequence; redesenhar o botão 'Deconstruct the system'; tornar os bullets de 'Authority lives in the assembly' mais legíveis, técnicos e visualmente ricos; avaliar oportunidades de Three.js para elevação visual; corrigir hierarquia de pesos/tamanhos de fonte (labels mono de 8-11px estão pequenos demais e alguns textos ficam 'perdidos').",
+  "AUDIENCE": "Público técnico/entusiasta automotivo que valoriza precisão de engenharia e estética premium/tech.",
+  "EDITORIAL": {
+    "dominantImpact": "TECHNICAL + PREMIUM",
+    "heroRole": "primeiro impacto + intenção mecânica (contact patch → suspensão)",
+    "designLanguageRole": "provar autoridade/credibilidade técnica através da construção (montagem)"
+  },
+  "NARRATIVE": "Mantém a mesma progressão (impacto imediato → autoridade na montagem → performance). A remoção do WheelSequence elimina uma seção intermediária redundante com a leitura mecânica já coberta por Hero + DesignLanguage, tornando a jornada mais direta.",
+  "SECTIONS": {
+    "Hero": "Preservada. Simplificar para uma única linha de piso (hero-floor-accent, a mais próxima da roda); remover hero-load-path. Intensificar luz/composição. Redesenhar botão 'Deconstruct the system'. Dar cor/relevância aos itens hero-meta (Focus / Sequence).",
+    "WheelSequence": "REMOVER integralmente: componente já estava desligado em App.jsx. Remove também as dependências exclusivas: ArchitectureScene.jsx, ArchitectureFallback.jsx, src/hooks/useArchitectureSceneMode.js, e todo CSS .architecture-*/.fallback-* órfão em styles.css.",
+    "DesignLanguage": "Authority lives in the assembly — manter estrutura e imagem; enriquecer os bullets (.design-points) com texto mais técnico/legível e efeitos visuais mais ricos, preservando a restraint editorial (não virar decorativo)."
+  },
+  "VISUAL_DIRECTION": "Intensificar luz e composição na Hero (novo pico de intensidade da experiência, já que perde uma seção). Manter DesignLanguage com autoridade, mas enriquecer visualmente os bullets sem competir com a hierarquia textual.",
+  "CINEMATIC_OPPORTUNITIES": "Higgsfield (GENERATED_MOTION) não será mais usado para novos efeitos cinematográficos nesta interação — os assets estáticos já existentes (lancer-hero.png, lancer-front-detail.png, lancer-rear-cta.png) permanecem como imagem-base, mas nenhuma nova síntese/vídeo gerado deve ser assumida como caminho. O padrão Web Premium/Web Cinematic precisa ser sustentado por PROGRAMMATIC_MOTION: Three.js/R3F (já no stack), CSS/composição/luz e Motion. Three.js deixa de ser 'avaliação oportunista' e passa a ser candidato primário para os pontos que antes dependeriam de geração (ex.: profundidade/luz procedural na Hero reforçando o estúdio fotográfico; tratamento espacial nos bullets da autoridade). Mantém-se 'técnico e controlado', nunca decorativo/gratuito — riqueza vem de luz, profundidade e precisão de composição, não de efeito por efeito.",
+  "STYLE": {
+    "summary": "tecnológico preciso e premium, com luz cinematográfica mais rica e hierarquia tipográfica que nunca deixa informação 'perdida'",
+    "typography": "labels utilitários (mono, uppercase) sobem de tamanho mínimo para permanecerem legíveis; pesos revisados para reforçar hierarquia sem perder o caráter técnico/monoespaçado",
+    "composition": "Hero com um único load-path de piso junto à roda; menos ruído, mais foco no carro e na luz",
+    "density": "controlada — remoção do WheelSequence reduz densidade de seções sem perder profundidade de conteúdo",
+    "colorLuminance": "base escura mantida; luminância localizada mais rica na Hero (mais luz de estúdio/composição)",
+    "surfacesMateriality": "mantém opacidade predominante + profundidade seletiva",
+    "imagery": "product-led (carro)",
+    "depth": "concentrada no carro na Hero; nos bullets de autoridade, profundidade/luz mais rica mas controlada",
+    "motionCharacter": "técnico e controlado, não decorativo",
+    "interactionCharacter": "responsivo, reforça hierarquia (ex.: cor nos itens Focus/Sequence)",
+    "rhythmWhitespace": "mantido"
+  },
+  "CONSTRAINTS": [
+    "Preservar stack existente (React 19, Vite, Motion, @react-three/fiber, three) sem novas dependências, salvo justificativa material",
+    "Não gerar novos assets/efeitos via Higgsfield (GENERATED_MOTION) nesta interação — riqueza visual adicional vem de PROGRAMMATIC_MOTION (Three.js/R3F, CSS, Motion). Imagens estáticas já existentes (lancer-hero.png, lancer-front-detail.png, lancer-rear-cta.png) continuam em uso como base.",
+    "Respeitar prefers-reduced-motion",
+    "Manter responsividade (breakpoints existentes em styles.css)",
+    "Não alterar Header, Performance, FinalCta — fora de escopo desta interação"
+  ],
+  "PRESERVE": ["Header.jsx", "Performance.jsx", "FinalCta.jsx", "estrutura geral do site-shell"],
+  "TECHNICAL_REQUIREMENTS": {
+    "stackBaseline": ["React 19", "Vite 7", "Motion (motion/react)", "@react-three/fiber", "three"],
+    "approvedDependencies": [],
+    "avoidDependencies": ["nova lib de motion/3D duplicada"],
+    "implementationNotes": [
+      "Deletar src/components/WheelSequence.jsx, src/components/ArchitectureScene.jsx, src/components/ArchitectureFallback.jsx, src/hooks/useArchitectureSceneMode.js",
+      "Remover import comentado de WheelSequence em src/App.jsx",
+      "Remover todo CSS .architecture-*, .fallback-layer, .fallback-node em src/styles.css (incl. overrides responsivos)",
+      "Hero: remover .hero-load-path (e o <div className='hero-load-path'><i /></div> em Hero.jsx); manter .hero-floor-accent como única linha de piso próxima à roda",
+      "Hero: enriquecer studio-light/hero-ignition ou adicionar novo tratamento de luz/composição sem comprometer o texto",
+      "hero-meta (Focus/Sequence): revisar cor (ex. uso de --red ou luminância) e hierarquia visual dos labels/valores",
+      "text-link 'Deconstruct the system': redesenhar estado visual (peso, cor, hover, tamanho) mantendo o mecanismo de link+scroll",
+      "design-points (.design-points button strong/small): revisar copy para tom mais técnico + subir legibilidade (peso/tamanho) + efeito visual mais rico (hover/active/luz)",
+      "Auditoria de tamanhos de fonte mono-label (8-11px) usados em eyebrow, hero-meta, scroll-cue, concept-label, visual-code, process-annotation, concept-note, footer — elevar piso mínimo de legibilidade preservando o caráter técnico",
+      "Three.js/R3F é o mecanismo primário (não opcional) para repor a riqueza cinematográfica que antes viria de novas gerações Higgsfield — priorizar Hero (luz/profundidade de estúdio) e avaliar aplicação também em DesignLanguage; sempre justificar o efeito antes do mecanismo"
+    ]
+  },
+  "OPEN_DECISIONS": [],
+  "enrichment": {
+    "maxMaterialLoops": 3,
+    "materialLoopsUsed": 1,
+    "activeCycle": null,
+    "history": [
+      {
+        "cycle": 1,
+        "classification": "ENRICHMENT",
+        "affectedFields": ["CONSTRAINTS", "CINEMATIC_OPPORTUNITIES", "TECHNICAL_REQUIREMENTS"],
+        "status": "RESOLVED",
+        "createdAt": "2026-08-25T00:00:00.000Z",
+        "completedAt": "2026-08-25T00:00:00.000Z",
+        "summary": "Higgsfield não será mais usado para novos efeitos cinematográficos; Three.js/programático passa a ser o mecanismo primário para sustentar o padrão Web Cinematic."
+      }
+    ],
+    "lastClassification": "ENRICHMENT",
+    "diagnosis": null
+  },
+  "createdAt": "2026-08-25T00:00:00.000Z",
+  "updatedAt": "2026-08-25T00:00:00.000Z"
+}

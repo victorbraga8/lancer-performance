@@ -1,33 +1,31 @@
 ---
 name: le-review
-description: "[CLI/IDE/DESKTOP] Fecha o ciclo da Landing Express após execução: compara resultado com contratos e recomenda ACCEPT, REFINE, REGENERATE ou REDO sem validação visual autônoma avançada."
+description: "[LEGACY/COMPAT] Revisa concepção/prompt ou evidência externa; não é fase obrigatória da V1.2."
 ---
 
 # Landing Express — le-review
 
-Leia a sessão atual, Direction State, Build Prompt, execution manifest, execution plan/result e logs disponíveis.
+`le-review` permanece por compatibilidade. O fluxo público V1.2 não exige review para chegar a `PROMPT READY` ou `le-end`.
 
-Esta é V1: não finja possuir screenshot comparison ou QA visual automatizado se a surface não os oferece. Use evidência disponível: arquivos, outputs, screenshots fornecidos pelo usuário e inspeção permitida pela surface.
+Leia `USER-LANGUAGE.md`, `V1.1-MIGRATION.md`, `EXPERIENCE-QUALITY.md`, `SESSION-LIFECYCLE.md`, `NEXT-ACTION-CONTRACT.md`, o Conception State e o prompt atual.
 
-Compare EXPECTED vs ACTUAL por:
+Use PT-BR por padrão.
 
-- direção visual/editorial;
-- Visual Integration Contract;
-- asset modality/provider;
-- motion hierarchy e interação;
-- hard constraints;
-- preservation scope;
-- capability/tool realmente utilizada;
-- budget/retries;
-- acceptance criteria.
+Review findings — inclusive findings de sessão V1.1 ou implementação externa fornecida — são **evidência**, não instruções automáticas.
 
-Classifique:
+Para cada finding relevante:
 
-- ACCEPT: contrato materialmente cumprido;
-- REFINE: direção correta, falha localizada de implementação;
-- REGENERATE: asset localizado falhou em modalidade/shot/continuidade/integração;
-- REDO: problema estrutural de direção, hero mechanic ou narrativa.
+1. compare com a intenção e Conception State atuais;
+2. determine se ainda se aplica;
+3. explique o impacto em linguagem de experiência;
+4. reabra somente decisões afetadas;
+5. recomende Refine quando o prompt precisar mudar;
+6. preserve o restante da direção.
 
-Para REFINE/REGENERATE, produza um Preservation Contract com `PRESERVE` e `CHANGE ONLY`; persista `result-review.md` e `refinement-prompt.md` ou `regeneration-prompt.md` na sessão e atualize `events.jsonl`.
+Aplique `EXPERIENCE-QUALITY.md` para avaliar hierarquia, expressão de sections, criatividade, transições, motion, UX/responsividade e capability/economy apenas quando materiais ao finding.
 
-Se o mesmo gap já falhou repetidamente, recomende REDO/reavaliação em vez de loop infinito.
+Não altere arquivos de implementação, gere assets, rode dev/build/preview/deploy ou corrija uma implementação externa automaticamente.
+
+Um finding antigo não é vinculante apenas porque está persistido. `READY FOR BUILD`, `BUILD`, `REVIEW` e outras fases V1.1 não devem voltar a ser estados de produto.
+
+Se não houver mudança necessária, preserve `PROMPT READY`. Se houver, a rota normal é `le-refine`; se o objetivo mudou materialmente, recomende Nova interação.

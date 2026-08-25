@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "2026-08-25-hero-authority-refinement",
+  "currentVersion": 1,
+  "currentFile": "prompt-v1.md",
+  "versions": [
+    {
+      "version": 1,
+      "file": "prompt-v1.md",
+      "createdAt": "2026-08-25T00:00:00.000Z",
+      "gate": {
+        "action": "PROMPT_COMPILE",
+        "requiredProfile": "GENERAL/MEDIUM",
+        "activeModel": "claude-sonnet-5",
+        "activeEffort": "UNKNOWN",
+        "status": "PASS"
+      },
+      "executionRecommendation": {
+        "profile": "ADVANCED/MEDIUM",
+        "nativeModel": "claude-sonnet-5",
+        "nativeEffort": "MEDIUM (not exposed by Claude runtime — informational)",
+        "reasoning": "Multi-file deletion + site-wide CSS/typography audit + justified Three.js/R3F scene work with responsive/reduced-motion constraints and moderate open-ended technical judgment push this above the LIGHT/LOW default baseline for PROMPT_EXECUTION."
+      }
+    }
+  ],
+  "updatedAt": "2026-08-25T00:00:00.000Z"
+}

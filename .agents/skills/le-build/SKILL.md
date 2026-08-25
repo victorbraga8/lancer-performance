@@ -1,30 +1,34 @@
 ---
 name: le-build
-description: "[CLI/IDE/DESKTOP] Executa a experiência já roteirizada pela Landing Express V1. Faz preflight real de capabilities, respeita modalidade/budget/fallback e registra a execução."
+description: "[LEGACY/COMPAT] Handoff do prompt atual; não é a ação oficial de execução V1.2."
 ---
 
 # Landing Express — le-build
 
-Leia `.landing-express/BUILD-ORCHESTRATOR.md`, `.landing-express/CAPABILITY-CONTRACT.md`, `.landing-express/MODEL-GATE.md`, `.landing-express/capabilities.json` e a sessão indicada por `.landing-express/current.json`.
+`le-build` permanece somente por compatibilidade. Não dependa de `BUILD-ORCHESTRATOR.md` e não trate este comando como etapa obrigatória.
 
-Execute o Build Orchestrator exatamente.
+Resolva a interação e o `PROMPT READY` atual. Este comando pode apenas apresentar `prompt-vN.md` e sua recomendação; ele próprio não altera o produto, gera assets, roda build/deploy ou executa silenciosamente.
 
-Antes de alterar arquivos, mostre um preflight curto em português com:
+A execução oficial V1.2 acontece dentro da própria interação pela escolha:
 
-- Status geral: READY ou BLOCKED;
-- modelo/effort recomendado e active quando observável;
-- coding agent;
-- cada capability requerida;
-- Higgsfield quando referenciado;
-- política de fallback;
-- Generation Budget relevante.
+```text
+1. Executar prompt
+2. Refine
+3. Finalizar (`le-end`)
+```
 
-Uma capability `surface-tool` só é PASS se você realmente possui essa ferramenta disponível nesta execução. Configuração não equivale a conexão.
+`Executar prompt` segue `PROMPT-EXECUTION.md` e exige o gate `PROMPT_EXECUTION` antes de qualquer mutação.
 
-Se um asset exige Higgsfield e a ferramenta Higgsfield não está disponível, BLOCKED. Não substitua por SVG, vetores, CSS, imagem estática ou outro gerador sem override explícito.
+Saída de compatibilidade preferida:
 
-Respeite required modality e Visual Integration Contract. Em refines, aplique Preservation Contract e mude somente o escopo autorizado.
+```text
+PROMPT READY
 
-Registre eventos sem segredos e sem chain-of-thought privada.
+Prompt atual: vN
+Artefato: <prompt-vN.md>
 
-Ao concluir, retorne COMPLETED/PARTIAL/BLOCKED, resumo das mudanças, tools realmente usadas, consumo de budget e próximo passo `$le-review`.
+Próximas opções na interação:
+1. Executar prompt
+2. Refine
+3. Finalizar (`le-end`)
+```

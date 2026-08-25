@@ -4,21 +4,35 @@
   "status": "COMPLETED",
   "units": [
     {
-      "id": "validation-build",
-      "expectedOutput": "Build Vite aprovado",
+      "id": "navigation-current-state",
+      "expectedOutput": "Estado contextual ativo com aria-current e feedback visual persistente",
       "capability": "codingAgent",
+      "modality": "UI_MOTION",
+      "dependencies": [
+        "src/App.jsx",
+        "src/components/Header.jsx",
+        "src/styles.css"
+      ],
+      "acceptanceCriteria": [
+        "orquestracao fora do Header",
+        "prop explicita",
+        "um aria-current por secao contextual ativa",
+        "cleanup sem listeners duplicados"
+      ],
       "status": "COMPLETED"
     },
     {
-      "id": "validation-browser",
-      "expectedOutput": "QA desktop, mobile e reduced motion",
-      "capability": "browserVerification",
+      "id": "static-validation",
+      "expectedOutput": "Diff e sintaxe verificados sem iniciar runtime ou build",
+      "capability": "codingAgent",
+      "modality": "STATIC",
       "status": "COMPLETED"
     },
     {
-      "id": "localized-fixes",
-      "expectedOutput": "Somente correções comprovadas pelos checks",
+      "id": "session-handoff",
+      "expectedOutput": "Checkpoint READY FOR REVIEW persistido",
       "capability": "codingAgent",
+      "modality": "STATIC",
       "status": "COMPLETED"
     }
   ]

@@ -1,10 +1,20 @@
 {
-  "version": "0.1.0",
-  "productStage": "v1",
-  "mode": "direction-and-build-orchestrator",
+  "version": "0.2.0",
+  "productStage": "v1.2-copilot-editorial-in-progress",
+  "mode": "editorial-copilot-prompt-compiler-and-governed-execution",
+  "entrypoint": "le-start",
+  "publicCommands": [
+    "le-start",
+    "le-refine",
+    "le-end"
+  ],
+  "migration": "v1.1-core-absorbed",
+  "runtimeIdentity": "active-turn-preferred",
+  "gateRecovery": "pending-action-resumable",
+  "promptExecution": "in-interaction-governed",
   "runtimes": [
     "claude",
     "codex"
   ],
-  "updatedAt": "2026-08-23T01:11:37.329Z"
+  "updatedAt": "2026-08-25T19:48:19.024Z"
 }

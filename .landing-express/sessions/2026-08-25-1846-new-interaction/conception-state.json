@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 2,
+  "sessionId": "2026-08-25-1846-new-interaction",
+  "status": "COMPLETED",
+  "stage": "COMPLETED",
+  "stateVersion": 6,
+  "createdAt": "2026-08-25T18:46:42.527Z",
+  "updatedAt": "2026-08-25T19:01:00.000Z",
+  "INTENT": "Refinar visualmente a landing automotiva existente, preservando a hero aprovada e elevando as seções abaixo com mais clareza, interatividade e riqueza visual controlada.",
+  "AUDIENCE": "Público interessado em performance automotiva e engenharia esportiva premium.",
+  "EDITORIAL": {
+    "tone": "preciso, escuro, técnico e premium",
+    "hierarchy": "A hero permanece como pico visual; arquitetura explica; construção prova; performance ganha tensão sem competir com a abertura.",
+    "intensity": "reduzir ruído decorativo próximo ao veículo, criar contraste controlado na arquitetura e concentrar a maior carga visual na prova de performance."
+  },
+  "NARRATIVE": "Hero aprovada → leitura de arquitetura por seleção direta → prova construtiva interativa → resposta em performance como consequência visual unificada.",
+  "VISUAL_DIRECTION": "Automotivo esportivo dark com composição limpa, mídia em enquadramentos grandes, recortes de luz controlados, contraste alto e tipografia de maior presença sem criar excesso de HUD ou linhas decorativas.",
+  "SECTIONS": [
+    {
+      "name": "Hero",
+      "role": "impacto inicial",
+      "decision": "Preservar a composição aprovada; remover a terceira linha vertical e a quarta linha conectada abaixo do veículo, mantendo apenas as duas primeiras linhas corretas."
+    },
+    {
+      "name": "Spatial Architecture",
+      "role": "explicar arquitetura sem repetir o pico da hero",
+      "decision": "Remover a composição vinculada ao scroll e substituí-la por um carrossel editorial de três estados: Estrutura, Dinâmica e Controle. Cada seleção conduz uma cena 3D programática com câmera, luz e camadas próprias, em vez de depender da rolagem."
+    },
+    {
+      "name": "Construction Process",
+      "role": "prova de precisão",
+      "decision": "Aumentar escala e contraste tipográfico da lista abaixo de Every interface; reforçar os marcadores da imagem; cada item da lista passa a selecionar marcadores específicos e legíveis na imagem."
+    },
+    {
+      "name": "Response is built",
+      "role": "consequência em performance",
+      "decision": "Recompor como um único plano de performance com mídia em escala, ritmo tipográfico e camadas de informação conectadas, evitando cards isolados."
+    }
+  ],
+  "CINEMATIC_OPPORTUNITIES": [
+    "Carrossel de arquitetura com mudanças de enquadramento, luz e profundidade 3D entre estados, sem scrollytelling.",
+    "Marcadores de construção sincronizados à seleção do item, com transições programáticas discretas.",
+    "Bloco de performance com stills existentes em recortes cinematográficos e movimento programático; vídeo adicional somente com ativo aprovado e não relacionado à antiga explosão de roda."
+  ],
+  "INTERACTIONS": [
+    "Arquitetura: navegação por controles explícitos, teclado e toque; slide ativo com estado perceptível e câmera 3D sincronizada à seleção.",
+    "Construção: itens de lista clicáveis selecionam o conjunto correspondente de marcadores; equivalentes em blocos de leitura no mobile."
+  ],
+  "MOTION": {
+    "role": "SUPPORTING",
+    "modality": "PROGRAMMATIC_MOTION",
+    "decision": "Transições curtas, reversíveis e respeitando reduced motion; sem seção adicional baseada em scroll."
+  },
+  "THREE_D": {
+    "decision": "Usar Three.js/R3F somente em Spatial Architecture como uma cena 3D guiada por slides. Estrutura revela volumes e rigidez; Dinâmica comunica fluxo e transferência de carga; Controle mostra a relação entre resposta, tração e frenagem. A câmera muda por seleção explícita, não por scroll.",
+    "constraints": "Cena compacta, com texto em coluna própria, controles acessíveis e fallback estático em camadas/SVG no mobile ou reduced motion. Evitar wireframes decorativos, HUD e estética sci-fi genérica."
+  },
+  "STYLE": "Grafite, preto, metal e vermelho discreto; pesos tipográficos mais assertivos em rótulos e lista, preservando a leitura da hero.",
+  "GLASS_DEPTH_LIGHTING_MATERIALS": "Profundidade por recorte, máscara, sombra e luz de carroceria; superfícies translúcidas apenas como apoio, nunca sobre o texto principal.",
+  "CONSTRAINTS": [
+    "Preservar a hero aprovada.",
+    "Remover somente as duas linhas excedentes sob o capô/veículo.",
+    "Não reutilizar a antiga composição de Spatial Architecture vinculada ao scroll.",
+    "Não usar wheel-exploded-a01.png nem wheel-explosion.mp4 como clímax visual.",
+    "Usar apenas ativos existentes; sem mídia externa gerada.",
+    "Preservar legibilidade, responsividade, foco visível, alvos de toque, reduced motion e ausência de overflow horizontal."
+  ],
+  "PRESERVE": [
+    "Hero atual e sua hierarquia visual.",
+    "Estrutura, links, navegação e ativos válidos fora das áreas refinadas."
+  ],
+  "TECHNICAL_REQUIREMENTS": [
+    "Carrossel acessível com controles explícitos, Three.js/R3F isolado em Spatial Architecture e alternativa estática/reduzida para reduced motion.",
+    "Mapeamento único entre item de construção e marcadores de imagem.",
+    "Mídia de performance restrita aos stills existentes; qualquer vídeo novo exige ativo aprovado pelo usuário."
+  ],
+  "OPEN_DECISIONS": [],
+  "invalidatedFields": [],
+  "readiness": {
+    "editorialCoherent": true,
+    "premiumBaselineSatisfied": true,
+    "cinematicOpportunitiesEvaluated": true,
+    "technologiesEvaluated": true,
+    "constraintsKnown": true,
+    "contradictionsResolved": true,
+    "evaluatedAt": "2026-08-25T18:49:00.000Z"
+  },
+  "enrichmentCheckpointResolved": true,
+  "finalization": {
+    "status": "PASS",
+    "evaluatedAt": "2026-08-25T18:50:00.000Z",
+    "blockers": []
+  },
+  "promptCompilation": {
+    "version": 1,
+    "artifactPath": ".landing-express/sessions/2026-08-25-1846-new-interaction/prompt-v1.md",
+    "compiledAt": "2026-08-25T18:59:38.338Z",
+    "compileGateStatus": "PASS",
+    "recommendedModel": "gpt-5.6-sol",
+    "recommendedEffort": "high"
+  },
+  "completion": {
+    "status": "COMPLETED",
+    "completedAt": "2026-08-25T19:01:00.000Z",
+    "promptVersion": 1,
+    "refineCount": 0,
+    "recommendedModel": "gpt-5.6-sol",
+    "recommendedEffort": "high"
+  },
+  "enrichment": {
+    "maxMaterialLoops": 3,
+    "materialLoopsUsed": 0,
+    "activeCycle": null,
+    "history": [],
+    "lastClassification": null,
+    "diagnosis": null
+  }
+}
