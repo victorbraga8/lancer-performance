@@ -7,5 +7,24 @@
     "startedAt": "2026-08-26T17:55:05.438Z",
     "completedAt": "2026-08-26T15:02:38.8806286-03:00",
     "summary": "Landing refinada com continuidade mecânica, iluminação sem partículas, Performance interativa e mobile reinterpretado. Build e checks estáticos passaram; browser QA pendente."
+  },
+  {
+    "promptVersion": 2,
+    "status": "EXECUTION_COMPLETE",
+    "model": "gpt-5.6-sol",
+    "effort": "high",
+    "startedAt": "2026-08-26T19:16:23.431Z",
+    "completedAt": "2026-08-26T16:20:59.0960949-03:00",
+    "summary": "Localized Performance and Process refine completed with roda.jpg integration. Build and static checks passed; browser QA not run because no browser was connected."
+  },
+  {
+    "promptVersion": 3,
+    "status": "EXECUTION_COMPLETE",
+    "model": "gpt-5.6-terra",
+    "effort": "medium",
+    "gateStatus": "OVERRIDDEN",
+    "startedAt": "2026-08-26T20:39:41.175Z",
+    "completedAt": "2026-08-26T17:44:37.5691934-03:00",
+    "summary": "Mobile evidence-stage redesign, four local asset mappings and persistent Back to top completed. Build and static checks passed; browser QA not run because no browser was connected."
   }
 ]

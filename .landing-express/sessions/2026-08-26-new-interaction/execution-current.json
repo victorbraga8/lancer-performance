@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "status": "EXECUTION_COMPLETE",
-  "promptVersion": 1,
-  "promptArtifact": ".landing-express/sessions/2026-08-26-new-interaction/prompt-v1.md",
+  "promptVersion": 3,
+  "promptArtifact": ".landing-express/sessions/2026-08-26-new-interaction/prompt-v3.md",
   "gate": {
     "action": "PROMPT_EXECUTION",
-    "activeModel": "gpt-5.6-sol",
-    "activeEffort": "high",
-    "status": "PASS",
+    "activeModel": "gpt-5.6-terra",
+    "activeEffort": "medium",
+    "status": "OVERRIDDEN",
     "modelSource": "CODEX_ACTIVE_TURN_CONTEXT",
     "effortSource": "CODEX_ACTIVE_TURN_CONTEXT"
   },
@@ -17,20 +17,21 @@
     "GENERATED_MOTION": "OPTIONAL_NOT_REQUIRED",
     "newDependencies": "NONE"
   },
-  "startedAt": "2026-08-26T17:55:05.438Z",
-  "completedAt": "2026-08-26T15:02:38.8806286-03:00",
+  "startedAt": "2026-08-26T20:39:41.175Z",
+  "completedAt": "2026-08-26T17:44:37.5691934-03:00",
+  "outcomeSummaryV3": "Mobile Process flags shifted inward and lower void reduced; Performance maps all four assets into a compact mobile evidence stage; persistent Back to top added outside the clipped site shell.",
+  "outcomeSummaryV2": "Performance selection and hover states separated; Lancer crop shifted toward hood/front; wheel asset integrated for braking/chassis; Process mobile tabs replaced by static hood flags; existing CSS/Motion light scan preserved.",
   "outcomeSummary": "Continuidade visual, iluminação contida, progressão interativa de Performance, microtipografia e composições mobile implementadas sem novas dependências.",
   "filesChanged": [
-    "src/components/Hero.jsx",
-    "src/components/HeroLightScene.jsx (removed)",
+    "src/App.jsx",
+    "src/components/BackToTop.jsx",
     "src/components/Performance.jsx",
     "src/styles.css"
   ],
   "validations": [
-    { "check": "npm run build", "status": "PASS", "detail": "439 modules transformed" },
+    { "check": "npm run build", "status": "PASS", "detail": "440 modules transformed" },
     { "check": "git diff --check", "status": "PASS", "detail": "line-ending warnings only" },
-    { "check": "local dev server", "status": "PASS", "detail": "HTTP 200 and root element present" },
-    { "check": "React best-practices review", "status": "PASS", "detail": "local state, explicit controls and no unnecessary memoization" },
-    { "check": "browser visual QA", "status": "NOT_RUN", "detail": "no browser available in the active session" }
+    { "check": "mapped assets in production build", "status": "PASS", "detail": "motor, transmission, wheel and suspension assets present" },
+    { "check": "browser visual QA", "status": "NOT_RUN", "detail": "no browser connected; temporary local server could not initialize in the isolated environment" }
   ]
 }

@@ -3,6 +3,7 @@
   "sessionId": "2026-08-26-new-interaction",
   "sessionPath": ".landing-express/sessions/2026-08-26-new-interaction",
   "status": "EXECUTION_COMPLETE",
+  "promptVersion": 3,
   "source": "new-interaction",
-  "updatedAt": "2026-08-26T15:02:38.8806286-03:00"
+  "updatedAt": "2026-08-26T16:20:59.0960949-03:00"
 }
