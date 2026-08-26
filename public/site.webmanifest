@@ -1,0 +1,16 @@
+{
+  "name": "Lancer Performance Concept",
+  "short_name": "Lancer",
+  "description": "A cinematic Lancer performance concept.",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#08090a",
+  "background_color": "#08090a",
+  "display": "standalone"
+}
