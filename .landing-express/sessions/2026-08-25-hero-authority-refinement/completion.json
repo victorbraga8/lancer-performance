@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "2026-08-25-hero-authority-refinement",
+  "status": "COMPLETED",
+  "finalPromptVersion": 1,
+  "refinesPerformed": 0,
+  "lastRecommendedModel": "claude-sonnet-5",
+  "lastRecommendedEffort": "MEDIUM (baseline recommendation; executed at high per user's active configuration)",
+  "executionState": "EXECUTION_COMPLETE",
+  "completedAt": "2026-08-25T00:00:00.000Z"
+}

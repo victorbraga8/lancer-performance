@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 
 const disciplines = [
@@ -9,6 +10,9 @@ const disciplines = [
 
 export default function Performance() {
   const reducedMotion = useReducedMotion()
+  const [activeDiscipline, setActiveDiscipline] = useState(0)
+  const selectedDiscipline = disciplines[activeDiscipline]
+  const flowProgress = `${((activeDiscipline + 1) / disciplines.length) * 100}%`
 
   return (
     <section className="performance section-pad" id="performance">
@@ -43,26 +47,35 @@ export default function Performance() {
           <div className="performance-media-shade" aria-hidden="true" />
           <div className="performance-media-meta">
             <span>LOAD / RESPONSE</span>
-            <strong>One system. Four consequences.</strong>
+            <strong>{selectedDiscipline.stat} / {selectedDiscipline.title}</strong>
           </div>
         </div>
 
-        <ol className="performance-disciplines">
+        <ol className="performance-disciplines" style={{ '--flow-progress': flowProgress }}>
           {disciplines.map((item, index) => (
             <motion.li
               key={item.number}
+              className={index === activeDiscipline ? 'is-active' : ''}
               initial={reducedMotion ? false : { opacity: 0, x: 24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.55 }}
               transition={{ duration: 0.48, delay: index * 0.08, ease: [0.2, 0.8, 0.2, 1] }}
             >
-              <span>{item.number}</span>
-              <div>
-                <p>{item.title}</p>
-                <strong>{item.stat}</strong>
-                <small>{item.copy}</small>
-              </div>
-              <i aria-hidden="true" />
+              <button
+                type="button"
+                aria-pressed={index === activeDiscipline}
+                onClick={() => setActiveDiscipline(index)}
+                onFocus={() => setActiveDiscipline(index)}
+                onMouseEnter={() => setActiveDiscipline(index)}
+              >
+                <span>{item.number}</span>
+                <div>
+                  <p>{item.title}</p>
+                  <strong>{item.stat}</strong>
+                  <small>{item.copy}</small>
+                </div>
+                <i aria-hidden="true" />
+              </button>
             </motion.li>
           ))}
         </ol>

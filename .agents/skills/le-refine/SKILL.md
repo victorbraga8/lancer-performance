@@ -30,7 +30,21 @@ Classifique:
 MINOR | MATERIAL | STRUCTURAL | SCOPE_SHIFT
 ```
 
-Atualize/invalide somente fields afetados. Use `STYLE-INTERPRETER.md`, `STACK-AWARE-ROUTING.md`, `SUGGESTION-POLICY.md` e demais interpreters apenas quando o delta exigir. Não faça patch textual direto no prompt como substituto do Refine governado.
+Atualize/invalide somente fields afetados. Use `STYLE-INTERPRETER.md`, `CREATIVE-ELIGIBILITY.md`, `STACK-AWARE-ROUTING.md`, `SUGGESTION-POLICY.md` e demais interpreters apenas quando o delta exigir. Não faça patch textual direto no prompt como substituto do Refine governado.
+
+Se o Refine alterar território, intensidade, visual direction, sections ou oportunidades cinematográficas, invalide somente a parte criativa afetada e rerode:
+
+```text
+Thematic / Creative Eligibility quando necessário
+→ Creative Intensity quando necessário
+→ Opportunity Pass
+→ Cinematic Enrichment
+→ Creative Hypothesis
+→ Anti-Cliché
+→ Opportunity Prioritization
+```
+
+Não rerode esse pipeline para um delta `MINOR` que não altere a direção. O pass continua proativo, pode retornar `NONE`, não consome o budget user-driven 0..3 e não deve selecionar tecnologia sofisticada por preferência abstrata.
 
 Quando convergir:
 

@@ -1,7 +1,5 @@
-import { lazy, Suspense, useRef } from 'react'
+import { useRef } from 'react'
 import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react'
-
-const HeroLightScene = lazy(() => import('./HeroLightScene'))
 
 export default function Hero() {
   const sectionRef = useRef(null)
@@ -46,13 +44,7 @@ export default function Hero() {
 
       <div className="car-stage">
         <div className="studio-light" aria-hidden="true" />
-        {!reducedMotion && (
-          <div className="hero-light-scene" aria-hidden="true">
-            <Suspense fallback={null}>
-              <HeroLightScene />
-            </Suspense>
-          </div>
-        )}
+        <div className="studio-rim-light" aria-hidden="true" />
         <motion.img
           className="hero-car-image"
           src="/assets/higgsfield/lancer-hero.png"

@@ -1,8 +1,8 @@
-# Model / Effort Gate — V1.2
+# Model / Effort Gate — V1.3
 
 The Model/Effort Gate prevents both under-reasoning and unnecessary over-reasoning for the **material action that is about to run**.
 
-Read `RUNTIME-IDENTITY.md`, `REASONING-ADAPTER.md`, `reasoning-adapter.json` and `GATE-RECOVERY.md`.
+Read `RUNTIME-IDENTITY.md`, `REASONING-ADAPTER.md`, `reasoning-adapter.json`, `COPILOT-INITIATIVE.md`, `CREATIVE-ELIGIBILITY.md` and `GATE-RECOVERY.md`.
 
 ## 1. START boundary
 
@@ -26,41 +26,85 @@ Observation precedence:
 1. active surface/session value explicitly exposed by the runtime;
 2. exact current-turn runtime record;
 3. explicit session/environment evidence;
-4. configuration only as fallback context when the runtime semantics make it authoritative;
+4. configuration only as fallback context when authoritative;
 5. explicit user statement when runtime evidence is unavailable;
 6. `UNKNOWN` only for the unresolved field.
 
-For Codex, prefer active thread/turn evidence over config. Never let a configured Terra override an active Sol turn, for example.
+Never let stale configuration override stronger current runtime evidence.
 
-## 3. Independent actions
+## 3. Independent material actions
 
 At minimum govern:
 
 - `NEW_INTERACTION`;
 - `RESUME`;
-- material `ENRICHMENT`;
+- material user-driven `ENRICHMENT`;
 - `PROMPT_COMPILE`;
 - `PROMPT_EXECUTION`;
 - `REFINE`;
-- another materially different action when needed.
+- another materially different action when genuinely needed.
 
-A PASS/override never authorizes a later action. Recalculate before every materially different action.
+A PASS/override never authorizes a later material action.
 
-## 4. Prompt execution
+## 4. Cinematic Enrichment policy
+
+`CINEMATIC_ENRICHMENT` is **not** a separate user-facing hard gate in V1.3.
+
+It runs as a governed subaction inside the current material parent action:
+
+```text
+NEW_INTERACTION
+RESUME
+ENRICHMENT
+REFINE
+```
+
+Policy:
+
+```text
+cinematic subpass
+→ evaluate real cinematic complexity
+→ if no material delta: remain under active parent gate
+→ if material complexity changed: recalculate the parent action profile
+→ interrupt only when resulting mismatch / UNKNOWN is material
+```
+
+Do not create a new gate merely because a cinematic mechanism exists.
+
+High initiative does not raise model/effort by itself:
+
+```text
+Copilot Initiative != Reasoning Capability
+```
+
+`HIGH INITIATIVE + BOUNDED AUTHORITY` determines how proactively opportunities are sought. Model/effort is determined by actual ambiguity, novelty, risk, specification strength, creative/editorial demand and context breadth.
+
+## 5. Gate fatigue prevention
+
+Avoid repeated interruptions during one coherent creative pass.
+
+Recalculate internally whenever useful, but show/block only when:
+
+- the active runtime becomes materially insufficient;
+- the active runtime is materially excessive and wasteful;
+- required runtime evidence is `UNKNOWN`;
+- the task changed enough to become a new material action.
+
+A motion/atmosphere/typography/spatial subpass does not independently earn a gate.
+
+## 6. Prompt execution
 
 `PROMPT_EXECUTION` is special: its recommendation comes from the complexity of the **actual compiled prompt**.
 
 Do not assign a fixed maximum model to execution. The baseline starts low and rises only when prompt breadth, ambiguity, risk, 3D/motion/interaction/integration complexity or related execution evidence justifies it.
 
-Canonical principle:
-
 > **Execution complexity raises model/effort. The word “execute” does not.**
 
-## 5. Native resolution
+## 7. Native resolution
 
 Resolve abstract capability/effort through the centralized adapter. Preserve exact native names. Do not invent selectors or generic substitutes when an actionable native name is available.
 
-## 6. Statuses
+## 8. Statuses
 
 - `PASS`: aligned;
 - `UNDER_REASONING`: active model/effort materially below requirement;
@@ -70,7 +114,7 @@ Resolve abstract capability/effort through the centralized adapter. Preserve exa
 
 Do not flag microscopic differences. Flag differences that materially affect quality, cost or retry risk.
 
-## 7. Output
+## 9. Output
 
 When a gate must be shown:
 
@@ -84,25 +128,25 @@ Status: PASS | UNDER_REASONING | OVER_REASONING | UNKNOWN | OVERRIDDEN
 Reason: <concise reason>
 ```
 
-A PASS that requires no intervention may be concise. A blocked gate must include the recovery instruction from `GATE-RECOVERY.md`.
+A PASS that requires no intervention may remain silent/concise. A blocked gate must include recovery instructions.
 
-## 8. HARD GATE + recovery
+## 10. HARD GATE + recovery
 
 For `UNDER_REASONING`, material `OVER_REASONING` or relevant `UNKNOWN`:
 
 1. stop before the material action;
 2. persist `pending-gate.json` with the action and compact evidence;
-3. tell the user the target configuration;
-4. tell the user to change it and send `Continuar`;
-5. on `Continuar`, detect runtime identity again;
+3. show target configuration;
+4. ask the user to align it and send `Continuar`;
+5. detect runtime identity again;
 6. rerun the same pending action gate;
-7. on PASS/override, clear pending state and continue from that action without restarting the journey.
+7. on PASS/override, clear pending state and continue without restarting the journey.
 
 Override is valid only for the pending action.
 
-## 9. Persistence
+## 11. Persistence
 
-Persist compact gate evidence for material actions:
+Persist compact gate evidence only:
 
 - action;
 - profile/dimensions;
@@ -112,8 +156,8 @@ Persist compact gate evidence for material actions:
 - override when present;
 - mapping/floor validation status.
 
-Never persist hidden chain-of-thought.
+For cinematic subpasses, persist only compact policy/result needed for continuity (`ownGate: false`, parent action, whether recalculation was required). Never persist hidden chain-of-thought.
 
-## 10. Economy
+## 12. Economy
 
 The target is the lowest sufficient configuration after accounting for quality, retries, ambiguity, breadth and risk. Neither cheapest-at-all-costs nor strongest-by-default is valid governance.

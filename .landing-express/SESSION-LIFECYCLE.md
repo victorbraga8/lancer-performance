@@ -1,8 +1,8 @@
-# Landing Express — Session / Interaction Lifecycle V1.2
+# Landing Express — Session / Interaction Lifecycle V1.3
 
-Landing Express is an editorial/visual creation copilot whose primary product unit is the **INTERACTION / SESSION**. Gates, prompt versions, execution records and internal checkpoints govern that interaction; they are not separate products the user must learn.
+Landing Express is an editorial/visual creation copilot whose primary product unit is the **INTERACTION / SESSION**. Gates, prompt versions, creative passes, execution records and internal checkpoints govern that interaction; they are not separate products the user must learn.
 
-Read `PUBLIC-SURFACE.md`, `USER-LANGUAGE.md`, `GATE-RECOVERY.md`, `PROMPT-EXECUTION.md`, `STYLE-INTERPRETER.md`, `STACK-AWARE-ROUTING.md` and `EXPERIENCE-QUALITY.md`.
+Read `PUBLIC-SURFACE.md`, `USER-LANGUAGE.md`, `GATE-RECOVERY.md`, `PROMPT-EXECUTION.md`, `COPILOT-INITIATIVE.md`, `CREATIVE-ELIGIBILITY.md`, `STYLE-INTERPRETER.md`, `STACK-AWARE-ROUTING.md`, `CONCEPTION-STATE.md`, `FINALIZATION-GATE.md` and `EXPERIENCE-QUALITY.md`.
 
 ## 1. User-facing lifecycle
 
@@ -15,80 +15,37 @@ GATE da ação escolhida
    ↓
 COPILOT
    ↓
+CREATIVE / CINEMATIC COHERENCE
+   ↓
 CONCEPTION READY
    ↓
 Acrescentar algo?
    ↓
-ENRICHMENT LOOP (0..3)
+USER-DRIVEN ENRICHMENT LOOP (0..3)
    ↓
 PROMPT COMPILE
    ↓
 PROMPT READY + EXECUTION RECOMMENDATION
    ↓
 Executar prompt | Refine | Finalizar
-   │
-   ├── Executar prompt
-   │     ↓
-   │   PROMPT_EXECUTION GATE
-   │     ↓
-   │   EXECUÇÃO
-   │     ↓
-   │   EXECUÇÃO CONCLUÍDA
-   │     ↓
-   │   Refine | Finalizar
-   │
-   ├── Refine → prompt-vN+1 → PROMPT READY
-   │
-   └── Finalizar → le-end → INTERAÇÃO CONCLUÍDA
 ```
+
+Execution completion is not interaction completion. Only explicit `le-end` closes the interaction.
 
 ## 2. START is a router
 
-`le-start` must be fast and must not force an optimization hop for a transient routing action.
-
-At start:
-
-1. detect active surface/runtime identity when useful;
-2. read only minimal session metadata;
-3. offer `Resume | Nova interação` (or only `Nova interação` when no prior interaction exists);
-4. run the **first hard gate only after the user chooses the material route**.
-
-Therefore:
+`le-start` must be fast and must not force a reasoning hop for a transient routing action.
 
 ```text
-le-start
-→ Nova interação
-→ GATE: NEW_INTERACTION
+le-start → Nova interação → GATE: NEW_INTERACTION
+le-start → Resume → GATE: RESUME
 ```
-
-or:
-
-```text
-le-start
-→ Resume
-→ GATE: RESUME
-```
-
-`START` may keep an abstract diagnostic baseline in the adapter, but it is `ROUTER_ONLY` and is not a user-blocking hard gate.
 
 ## 3. Gate recovery
 
-Every material gate must be resumable.
-
-On `UNDER_REASONING`, material `OVER_REASONING` or relevant `UNKNOWN`:
-
-- persist the pending action;
-- tell the user the recommended model/effort;
-- tell the user to change it and send `Continuar`;
-- detect the runtime again on `Continuar`;
-- rerun the same pending action gate;
-- continue from that action on PASS/override without restarting the journey.
-
-Read `GATE-RECOVERY.md`.
+Every material gate must be resumable. On `UNDER_REASONING`, material `OVER_REASONING` or relevant `UNKNOWN`, persist the pending action, show the recommendation, ask the user to align configuration and send `Continuar`, detect runtime again, rerun the same pending gate and resume that action without restarting the journey.
 
 ## 4. User-facing stages
-
-Normal status projection:
 
 ```text
 EM CONCEPÇÃO
@@ -99,8 +56,6 @@ EXECUÇÃO CONCLUÍDA
 REFINANDO O PROMPT
 INTERAÇÃO CONCLUÍDA
 ```
-
-`EXECUÇÃO CONCLUÍDA` is not the same as `INTERAÇÃO CONCLUÍDA`. Only explicit `le-end` closes the interaction.
 
 ## 5. NEW_INTERACTION
 
@@ -113,24 +68,13 @@ Nova interação selected
 → adaptive copilot
 ```
 
-Do not inherit previous-session prompt/findings/PRESERVE/review decisions unless the user explicitly requests reuse.
+Do not inherit previous-session direction unless the user explicitly requests reuse.
 
 ## 6. RESUME
 
-For an active interaction:
+Recover pending gate first when one exists. Otherwise gate `RESUME` before material conception recovery. Resume from the real stage: conception, prompt ready, execution complete or completed interaction.
 
-```text
-Resume selected
-→ identify session + minimal metadata
-→ recover pending gate first when one exists
-→ otherwise MODEL / EFFORT GATE: RESUME when material conception recovery is required
-→ recover only material state
-→ continue from the user-facing state
-```
-
-Resume must not always ask a generic conception question. If the interaction is already `PROMPT READY`, show `Executar prompt | Refine | Finalizar`. If it is `EXECUTION_COMPLETE`, show `Refine | Finalizar`. If a gate is pending, recover that gate first.
-
-For a completed interaction, require explicit reopen confirmation before material work.
+Do not rerun creative/cinematic passes unless a material delta invalidated them.
 
 ## 7. Copilot interpretation
 
@@ -139,27 +83,38 @@ Material conception follows internally:
 ```text
 CURRENT USER INTENTION
 → EDITORIAL INTERPRETER
-→ EDITORIAL COHERENCE
-→ STYLE INTERPRETER
-→ VISUAL INTERPRETER
+→ STYLE / VISUAL INTERPRETATION
+→ THEMATIC / CREATIVE ELIGIBILITY
+→ CREATIVE INTENSITY MAP
+→ OPPORTUNITY PASS
+→ CINEMATIC ENRICHMENT
+→ ASSET / ATMOSPHERE / DEPTH / TYPOGRAPHY EVIDENCE
+→ MOTION DRAMATURGY
+→ INTERACTION OPPORTUNITY
+→ RESPONSIVE CINEMATIC INTERPRETATION
+→ CREATIVE HYPOTHESIS + ANTI-CLICHÉ + PRIORITIZATION
+→ CINEMATIC BUDGET + INTENSITY CURVE
+→ CINEMATIC CONTINUITY
+→ MATERIAL USER DECISIONS
 → STACK-AWARE TECHNICAL ROUTING when material
-→ CONTEXTUAL SUGGESTION
-→ GENERATED MEDIA DECISION when applicable
 → MATERIAL CONCEPTION STATE UPDATE
 ```
 
-The user decides intention and perceivable outcome. Landing Express translates into style, mechanism, library and provider only as far as required.
+Use `HIGH INITIATIVE + BOUNDED AUTHORITY`. Initiative and Reasoning Gate capability remain separate.
 
-## 8. Style / suggestion / stack rules
+## 8. Creative / cinematic rules
 
-- Style is a visual grammar, not an adjective or library name.
-- Suggestions follow effect → editorial reason → mechanism → library when useful → trade-off when material.
-- Distinguish `STYLE → MECHANISM → LIBRARY → PROVIDER`.
+- Style is visual grammar, not an adjective/library name.
+- Preserve canonical translation: `STYLE → MECHANISM → LIBRARY → PROVIDER`.
+- Context determines eligible mechanisms; category does not act as an aesthetic preset.
+- `ELIGIBLE != SELECTED`.
+- Specialized evidence may block an attractive mechanism before prioritization.
+- Motion has narrative roles, not generic animation labels only.
+- Interaction must improve discovery/understanding/impact; `NONE` is valid.
+- Responsive preserves experience intent, not desktop geometry.
+- Continuity uses transformed/reinterpreted motifs, not literal hero repetition.
+- Intensity must alternate peak/release/recovery when multiple peaks exist.
 - Inspect the actual repo before recommending a new dependency.
-- Prefer existing libraries/capabilities when they preserve equivalent approved quality/control.
-- Add a dependency when it materially enables or improves the approved experience; never avoid a necessary dependency merely to keep the stack small.
-
-Persist approved style in `STYLE` and stack baseline/approved dependencies inside `TECHNICAL_REQUIREMENTS`.
 
 ## 9. Structured Conception State
 
@@ -169,48 +124,32 @@ Canonical source:
 .landing-express/sessions/<session-id>/conception-state.json
 ```
 
-Use the existing fields:
-
-```text
-INTENT
-AUDIENCE
-EDITORIAL
-NARRATIVE
-VISUAL_DIRECTION
-SECTIONS
-CINEMATIC_OPPORTUNITIES
-INTERACTIONS
-MOTION
-THREE_D
-STYLE
-GLASS_DEPTH_LIGHTING_MATERIALS
-CONSTRAINTS
-PRESERVE
-TECHNICAL_REQUIREMENTS
-OPEN_DECISIONS
-```
-
-Do not use raw transcript as the prompt source. Update/invalidate selectively.
+Use existing fields only. Project Batch 4 evidence into `CINEMATIC_OPPORTUNITIES`, `MOTION`, `INTERACTIONS` and `CONSTRAINTS` as defined by `CONCEPTION-STATE.md`. Do not create a second mega-state.
 
 ## 10. Gate coverage
 
-Recalculate before materially different actions including:
+Recalculate before materially different actions including `NEW_INTERACTION`, `RESUME`, material user-driven `ENRICHMENT`, `PROMPT_COMPILE`, `PROMPT_EXECUTION`, `REFINE` and other materially different cognitive/execution actions.
 
-- `NEW_INTERACTION`;
-- `RESUME` when material recovery begins;
-- material `ENRICHMENT`;
-- `PROMPT_COMPILE`;
-- `PROMPT_EXECUTION`;
-- `REFINE`;
-- other materially different cognitive/execution actions.
+**Recalculate always; interrupt only when a material mismatch/unknown requires intervention.**
 
-**Recalculate always; interrupt the user only when a material mismatch/unknown requires intervention.** A PASS that changes nothing may remain concise.
+Cinematic subpasses do not automatically create additional model/effort gates. They execute inside the current governed action unless a material mismatch requires interruption.
 
-## 11. Conception readiness / enrichment
+## 11. Conception readiness
 
-Reach `CONCEPTION READY` only when material editorial, narrative, style, visual, interaction, technical and constraint decisions are mature enough that unresolved ambiguity would not materially change the prompt.
+Reach `CONCEPTION READY` only when material editorial, narrative, style, visual, technical and constraint decisions are mature and all creative/cinematic prerequisites have converged.
 
-Then ask the defined enrichment checkpoint. `ENRICHMENT`/`STRUCTURAL` consume up to 3 material cycles; `MINOR` does not; `SCOPE_SHIFT` recommends Nova interação.
+Readiness requires:
+
+```text
+thematic eligibility resolved / NOT_MATERIAL
+creative intensity resolved
+copilot-driven enrichment RESOLVED / NONE
+cinematicExperienceCoherent: true
+```
+
+`cinematicExperienceCoherent` remains false while a material issue exists such as invalid mobile preservation, inaccessible pointer-only interaction, non-deterministic scroll motion, broken continuity, `UNDER_DESIGNED` intensity or `OVER_INTENSE` lack of restraint.
+
+Then ask the defined user-driven enrichment checkpoint. `ENRICHMENT`/`STRUCTURAL` consume up to 3 material cycles; `MINOR` does not; `SCOPE_SHIFT` recommends Nova interação.
 
 ## 12. Prompt compilation
 
@@ -218,7 +157,7 @@ Required order:
 
 ```text
 CONCEPTION READY
-→ enrichment resolved
+→ user-driven enrichment resolved
 → FINALIZATION PASS
 → MODEL / EFFORT GATE: PROMPT_COMPILE
 → compile immutable prompt-vN.md
@@ -227,11 +166,9 @@ CONCEPTION READY
 → PROMPT READY
 ```
 
-The prompt compiler must carry approved style grammar, stack baseline, dependencies/constraints and execution intent without requiring conversation context.
+The compiler must preserve approved style, selected cinematic opportunities, responsive classifications/replacements, continuity motifs, intensity/recovery zones, motion roles, selected interaction, stack baseline and constraints without requiring conversation context.
 
 ## 13. PROMPT READY
-
-Return:
 
 ```text
 PROMPT READY
@@ -245,11 +182,9 @@ Recommended execution effort: <native | UNKNOWN>
 3. Finalizar (`le-end`)
 ```
 
-The execution recommendation comes from the actual prompt complexity. It must not default to the strongest model simply because implementation will occur.
+Execution recommendation comes from actual prompt complexity, not from the word `execute`.
 
 ## 14. PROMPT_EXECUTION
-
-Read `PROMPT-EXECUTION.md`.
 
 Before mutation:
 
@@ -261,37 +196,16 @@ prompt-vN + stored complexity
 → execute prompt
 ```
 
-Persist `execution-current.json` and `execution-history.json`.
-
-Successful execution ends at:
-
-```text
-EXECUÇÃO CONCLUÍDA
-1. Refine
-2. Finalizar (`le-end`)
-```
-
-Never auto-call `le-end` merely because implementation finished.
+Successful execution ends at `EXECUÇÃO CONCLUÍDA → Refine | Finalizar` and never auto-calls `le-end`.
 
 ## 15. Refine
 
-Refine remains in the same interaction. It may happen before or after execution.
-
-After execution, implementation/result evidence may inform the delta, but Conception State remains the approved source of direction. A successful Refine produces immutable `prompt-vN+1.md` and returns to `PROMPT READY`, where execution is available again.
+Refine remains in the same interaction. Reopen only affected decisions. If the delta materially changes territory, assets, motion, interaction, responsive intent, continuity or intensity, rerun only the affected creative/cinematic passes before producing `prompt-vN+1.md`.
 
 ## 16. Completion
 
-Only explicit `le-end` marks `COMPLETED`.
-
-Completion preserves:
-
-- all prompt versions;
-- Conception State;
-- Refine history;
-- execution history/results;
-- gate evidence;
-- completion history.
+Only explicit `le-end` marks `COMPLETED`. Preserve prompt versions, Conception State, Refine history, execution history/results, gate evidence and completion history.
 
 ## 17. V1.1 boundary
 
-Do not restore Build Orchestrator, READY FOR BUILD, mandatory technical review or automatic deployment. Governed prompt execution is an in-interaction consumer of the compiled artifact, not a return to the old V1.1 workflow machine.
+Do not restore Build Orchestrator, READY FOR BUILD, mandatory technical review or automatic deployment. Governed prompt execution remains an in-interaction consumer of the compiled artifact.

@@ -1,4 +1,4 @@
-# Landing Express — Generated Media Policy V1.2
+# Landing Express — Generated Media Policy V1.3
 
 Generated media providers such as Higgsfield are **exception mechanisms**, not architectural defaults.
 
@@ -18,9 +18,38 @@ programmatic motion / scroll / 3D / WebGL
 generated media only when materially justified
 ```
 
-The goal is not to avoid generation at all costs. The goal is to use it only where synthesis creates material experience value that is not reasonably reproducible with deterministic techniques.
+The goal is not to avoid generation at all costs. Use it when synthesis creates material experience value that deterministic techniques cannot reasonably match.
 
-## 2. Prefer programmatic motion / 3D when comparable
+## 2. Generated-media replacement obligation
+
+When generated cinematic media is removed from the baseline, identify which perceptual values were previously embedded in it:
+
+```text
+ATMOSPHERE
+DEPTH
+DRAMATIC_LIGHTING
+MOTION
+COMPOSITION
+ASSET_PRESENCE
+CINEMATIC_REVEAL
+```
+
+For every material embedded value, define how the experience preserves that value through another mechanism when viable.
+
+Example:
+
+```text
+Generated video unavailable
+→ atmosphere: haze + ambient gradient
+→ depth: layer separation + parallax
+→ dramatic lighting: directional/rim treatment
+→ motion: deterministic scroll progression
+→ cinematic reveal: masking + staged release
+```
+
+If a material embedded value has no acceptable replacement, do not silently degrade the landing. Keep the conception blocked until the direction is adapted or generated media is justified again.
+
+## 3. Prefer deterministic motion / 3D when comparable
 
 Prefer deterministic implementation when it can deliver similar or superior quality because it normally provides:
 
@@ -33,42 +62,38 @@ Prefer deterministic implementation when it can deliver similar or superior qual
 - lower retry risk;
 - better synchronization with labels/UI/state.
 
-Example:
+For technical disassembly or scroll-controlled progression, prefer programmatic scenes when the asset/geometry supports the required quality.
 
-```text
-Para uma desmontagem técnica controlada pelo scroll, priorize cena programática quando o objeto puder ser representado com qualidade suficiente. Generated video só entra se o ganho visual de síntese for material e impossível de reproduzir razoavelmente em código/assets existentes.
-```
+## 4. When generated media is justified
 
-## 3. When generated media is justified
-
-Generated media can be recommended when at least one condition is material:
+Generated media remains valid when synthesis is materially superior or necessary, including when:
 
 - photorealistic synthesis is central to the experience;
-- the scene/environment would be disproportionately expensive to reproduce programmatically;
-- a cinematic transformation depends on appearance generation rather than geometric/control logic;
-- source media does not exist and creating it manually is impractical;
-- a generated still/video materially increases perceived value without becoming the interaction engine itself.
+- the environment/transformation is disproportionately expensive to reproduce programmatically;
+- appearance generation is the value itself rather than interaction logic;
+- source media does not exist and deterministic reconstruction is impractical;
+- a generated still/video materially increases perceived value without becoming the entire interaction engine.
 
 A visually impressive result alone is not sufficient justification.
 
-## 4. Provider decision factors
+## 5. Provider decision factors
 
-Before recommending Higgsfield or another provider, explicitly consider:
+Before recommending Higgsfield or another provider, consider:
 
 - cost / credits;
-- free-tier or quota availability;
+- quota availability;
 - provider availability/reliability;
 - retry probability;
 - reference consistency;
 - export format and resolution;
 - integration effort;
-- latency only when it affects the production flow;
-- whether the asset must support reverse/interactive playback;
-- replacement/fallback path if the provider becomes unavailable.
+- latency when production-relevant;
+- reverse/interactive playback requirements;
+- replacement/fallback path.
 
-If these constraints make generation brittle and a deterministic solution can achieve the same editorial purpose, prefer the deterministic solution.
+If generation is brittle and a deterministic solution can preserve the same editorial purpose, prefer the deterministic solution.
 
-## 5. No provider lock as a product assumption
+## 6. No provider lock as product assumption
 
 Do not write conception rules such as:
 
@@ -78,19 +103,20 @@ Every hero needs generated video.
 Generated media is required for Web Cinematic quality.
 ```
 
-Higgsfield is one possible provider. Equivalent providers may be substituted when they satisfy the same asset contract.
+A provider is an implementation detail unless explicitly required by the approved asset contract.
 
-## 6. Never degrade the cinematic baseline
+## 7. Never degrade the cinematic baseline
 
 If generated media is unavailable, out of credit or unreliable:
 
-- do not reduce the target to a generic static landing merely because generation failed;
+- do not reduce the target to a generic static landing;
 - reinterpret the same editorial intent with deterministic mechanisms;
-- preserve hierarchy, materiality, depth, motion language and interaction quality using the best available approach.
+- preserve hierarchy, materiality, depth, lighting, motion language, asset presence, reveal and interaction quality where material;
+- use the replacement strategy before deciding that the section must become simpler.
 
 The baseline is **Web Premium / Web Cinematic**, not **generated-media dependent**.
 
-## 7. Generated asset discipline
+## 8. Generated asset discipline
 
 Every generated asset recommendation must have a defined destination and purpose before generation.
 
@@ -102,7 +128,7 @@ Section
 Editorial purpose
 Why synthesis is required
 Required / Optional
-Provider class (not provider lock unless required)
+Provider class
 Generation type
 Reference/source
 Camera / framing
@@ -117,34 +143,35 @@ Do Not Generate
 
 If an asset has no destination, narrative function or expected usage, do not generate it.
 
-## 8. External-provider recommendation format
+## 9. External-provider recommendation format
 
-When generated media is justified, explain the recommendation in user-facing language:
+Explain the perceivable reason before the provider/technology.
+
+Example:
 
 ```text
-Aqui a síntese externa faz sentido porque precisamos de uma transformação fotorealista difícil de reproduzir com geometria simples. O trade-off é depender de créditos/retries e perder parte do controle interativo; por isso eu usaria o vídeo como matéria-prima visual, não como regra para toda a landing.
+Aqui a síntese externa faz sentido porque precisamos de uma transformação fotorealista difícil de reproduzir com geometria simples. O trade-off é depender de créditos/retries e perder parte do controle interativo; por isso o vídeo entra como matéria-prima visual, não como regra para a landing inteira.
 ```
 
 Do not present the provider name as the reason.
 
-## 9. Fallback hierarchy
+## 10. Fallback hierarchy
 
-A recommendation that depends on generated media should define a fallback appropriate to the same editorial objective, for example:
+Examples:
 
 - generated video → programmatic 3D / frame-based controlled sequence;
 - generated environment → still + depth/parallax/lighting;
-- generated transformation → deterministic masks/3D if synthesis fails;
-- optional atmospheric asset → omit without affecting the core hierarchy.
+- generated transformation → deterministic masks/3D;
+- optional atmospheric asset → omit only when the core hierarchy and intended value remain intact.
 
 Fallback may reduce a specific effect, but must not silently collapse the whole experience below the premium baseline.
 
-## 10. Relationship with other contracts
+## 11. Relationship with Cinematic Enrichment
 
-- `VISUAL-INTERPRETER.md` identifies the best visual mechanism for the section.
-- `SUGGESTION-POLICY.md` defines how the recommendation is explained and compared.
-- this policy decides whether external/generated media is actually justified.
-- `CAPABILITY-CONTRACT.md` governs execution capability availability when an external executor later consumes the compiled prompt.
+`CINEMATIC ENRICHMENT` must evaluate replacement value explicitly when generated media is not selected/available.
 
-## 11. Persistence
+The replacement plan is compact operational evidence and may be persisted with `CINEMATIC_OPPORTUNITIES`. It is not a speculative provider dump.
 
-Persist only material generated-media decisions, budgets, provider constraints and fallbacks. Do not persist speculative provider exploration or hidden reasoning.
+## 12. Persistence
+
+Persist only material generated-media decisions, embedded values, replacement mechanisms, budgets, provider constraints and fallbacks. Do not persist hidden reasoning.

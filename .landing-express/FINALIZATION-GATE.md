@@ -1,27 +1,22 @@
-# Landing Express — Finalization Gate V1.2
+# Landing Express — Finalization Gate V1.3
 
-The Finalization Gate determines whether the current conception may enter prompt compilation **after** the optional enrichment checkpoint has been resolved.
+The Finalization Gate determines whether the current conception may enter prompt compilation **after** creative governance, cinematic experience coherence, creative-director critique, readiness and the user-driven enrichment checkpoint have been resolved.
 
 It is **not** the Model/Effort Gate and it is **not** the initial readiness evaluation.
 
+- Creative Governance asks: `território, intensidade e copilot-driven enrichment convergiram?`
+- Cinematic Experience asks: `motion/interação/responsive/continuidade/curva de intensidade estão coerentes quando materiais?`
+- Critique-before-ready asks: `o que um diretor de criação ainda questionaria ou elevaria?`
 - Readiness asks: `a concepção atingiu CONCEPTION READY?`
-- Enrichment Checkpoint asks: `o usuário quer acrescentar algo antes de consolidar?`
-- Finalization Gate asks: `a concepção pronta, já após o checkpoint/enrichment, pode ser consolidada agora?`
-- Model/Effort Gate asks: `o runtime atual está adequadamente calibrado para executar PROMPT_COMPILE?`
+- User-driven Enrichment Checkpoint asks: `o usuário quer acrescentar algo antes de consolidar?`
+- Finalization Gate asks: `a concepção pronta pode ser consolidada agora?`
+- Model/Effort Gate asks: `o runtime atual está adequadamente calibrado para PROMPT_COMPILE?`
 
 These stages must remain separate.
 
 ## 1. Explicit readiness state
 
-A conception may reach the explicit state:
-
-```text
-CONCEPTION READY
-```
-
-Do not infer readiness because the user stopped responding, because many fields are populated, or because the conversation became long.
-
-Readiness must be evaluated materially before the Enrichment Checkpoint.
+A conception may reach `CONCEPTION READY` only after the material creative critique converges. Do not infer readiness because the user stopped responding, because many fields are populated, or because the conversation became long.
 
 ## 2. Required readiness checks
 
@@ -31,35 +26,90 @@ Before `CONCEPTION READY`, validate when applicable:
 - editorial direction is coherent;
 - narrative is defined;
 - Web Premium / Web Cinematic baseline is satisfied;
-- cinematic opportunities have been deliberately evaluated, including the decision to avoid them when appropriate;
+- `THEMATIC / CREATIVE ELIGIBILITY` is resolved or explicitly `NOT_MATERIAL`;
+- `CREATIVE INTENSITY MAP` is resolved;
+- `COPILOT-DRIVEN ENRICHMENT` converged to `RESOLVED` or `NONE`;
+- cinematic experience coherence is resolved;
+- `CRITIQUE-BEFORE-READY` is `RESOLVED` or `NONE`;
+- cinematic opportunities have been deliberately evaluated;
 - technical/visual mechanisms have been evaluated sufficiently for the executor;
-- constraints are known, including an explicit `none known` when appropriate;
+- constraints are known;
 - material contradictions are resolved or explicitly overridden;
-- material open decisions are resolved or explicitly accepted as intentionally open;
+- material open decisions are resolved or explicitly accepted;
 - no affected Conception State field remains invalidated.
 
 Do not require irrelevant detail merely to satisfy a checklist.
 
-## 3. Readiness evidence model
+## 3. Creative / cinematic order
 
-Use `CONCEPTION-STATE.md` as the structured source of truth and record compact readiness evidence such as:
+```text
+EDITORIAL / STYLE / VISUAL INTERPRETATION
+    ↓
+THEMATIC / CREATIVE ELIGIBILITY
+    ↓
+CREATIVE INTENSITY MAP
+    ↓
+OPPORTUNITY + SPECIALIZED CINEMATIC PASSES
+    ↓
+MOTION / INTERACTION / RESPONSIVE REVIEW
+    ↓
+CINEMATIC BUDGET / CONTINUITY / INTENSITY CURVE
+    ↓
+COPILOT-DRIVEN ENRICHMENT CONVERGED
+    ↓
+CRITIQUE-BEFORE-READY
+    ↓
+MATERIAL USER DECISIONS when critique exposes a material issue
+    ↓
+CONCEPTION READINESS
+```
+
+The internal copilot-driven pass and critique do not consume the user's enrichment 0..3 budget.
+
+## 4. Critique-before-ready
+
+Internal question:
+
+> `Se um diretor de criação revisasse esta proposta antes da execução, o que ainda questionaria ou elevaria?`
+
+Check at least, when material:
+
+```text
+insufficient impact
+asset underutilized
+atmosphere missing when required
+typography weak against asset/composition
+motion functional but under-expressive
+spatiality insufficient
+overcomposition / lack of restraint
+desktop geometry incorrectly preserved on mobile
+material technical opportunity ignored
+```
+
+Only material findings may be surfaced to the user. Do not dump the internal checklist or hidden reasoning.
+
+A material unresolved critique finding blocks readiness. A clean critique returns `NONE`; resolved findings return `RESOLVED`.
+
+## 5. Readiness evidence model
+
+Use compact evidence such as:
 
 ```text
 editorialCoherent: true | false
 premiumBaselineSatisfied: true | false
+cinematicExperienceCoherent: true | false
+creativeDirectorCritique: NONE | RESOLVED | BLOCKED
 cinematicOpportunitiesEvaluated: true | false
 technologiesEvaluated: true | false
 constraintsKnown: true | false
 contradictionsResolved: true | false
 ```
 
-This evidence is a material conclusion, not hidden chain-of-thought.
+Creative eligibility/intensity/copilot enrichment readiness is read from `creativeGovernance`, not duplicated as hidden reasoning.
 
-## 4. Enrichment checkpoint position
+## 6. User-driven enrichment checkpoint
 
-After readiness passes, do **not** run Finalization Gate immediately.
-
-Read `ENRICHMENT-CHECKPOINT.md` and ask the required checkpoint:
+After readiness passes, ask:
 
 ```text
 A direção já está consistente e pronta para ser transformada em prompt.
@@ -69,115 +119,44 @@ Quer acrescentar algo antes de eu consolidar?
 2. Não, pode consolidar
 ```
 
-If the user chooses `Sim`, handle the delta through the governed enrichment flow. If a material field is invalidated, return to `CONCEPTION ACTIVE`, resolve only affected decisions and re-evaluate readiness.
+If `Sim`, handle the delta through user-driven governed enrichment. If it invalidates territory/intensity/responsive intent/continuity or cinematic opportunities, reopen only affected decisions and rerun the relevant pass plus critique before readiness.
 
-If the user chooses `Não`, or an accepted enrichment cycle converges and the user then chooses to consolidate, record:
+If `Não`, or an accepted delta converges and the user then chooses consolidation, record `enrichmentCheckpointResolved: true`.
 
-```text
-enrichmentCheckpointResolved: true
-```
-
-Only then may Finalization Gate run.
-
-## 5. Finalization blocking behavior
+## 7. Finalization blocking behavior
 
 Finalization Gate is `BLOCKED` when any material condition remains, including:
 
-- readiness is no longer true;
-- the Enrichment Checkpoint has not been resolved in favor of consolidation;
-- a material enrichment cycle is still active;
-- enrichment diagnosis/scope shift has blocked consolidation;
-- material open decisions or invalidated fields remain unresolved.
-
-Example:
-
-```text
-Finalization Gate: BLOCKED
-Conception state: CONCEPTION READY
-Blocker: enrichmentCheckpointResolved
-Next: resolve enrichment checkpoint
-```
-
-or:
-
-```text
-Finalization Gate: BLOCKED
-Conception state: CONCEPTION ACTIVE
-Next: continue copilot on affected blockers
-```
+- creative eligibility unresolved;
+- creative intensity unresolved;
+- copilot-driven enrichment pending;
+- `cinematicExperienceCoherent != true`;
+- creative critique `BLOCKED` or missing;
+- readiness no longer true;
+- user-driven checkpoint not resolved;
+- a material user enrichment cycle active;
+- scope-shift/consolidation blocker;
+- material open decisions or invalidated fields unresolved.
 
 Do not compile a provisional final prompt merely because the user seems finished.
 
-## 6. Passing behavior
+## 8. Passing behavior
 
-If readiness is valid, the checkpoint is resolved for consolidation and no material enrichment cycle/blocker remains:
+If readiness is valid, cinematic experience and critique are coherent, the user checkpoint is resolved and no blocker remains:
 
 ```text
 Finalization Gate: PASS
 Conception state: CONCEPTION READY
 ```
 
-Compilation is still **not yet authorized**.
-
-The mandatory sequence is:
-
-```text
-CONCEPTION READY
-    ↓
-ENRICHMENT CHECKPOINT resolved
-    ↓
-FINALIZATION GATE PASS
-    ↓
-MODEL / EFFORT GATE: PROMPT_COMPILE
-    ↓
-PASS / OVERRIDDEN
-    ↓
-PROMPT COMPILE
-```
-
-A Finalization Gate PASS never overrides a blocked Model/Effort Gate.
-
-## 7. Open decisions
-
-A material open decision blocks readiness/finalization unless the user explicitly accepts that it may remain open for the executor.
-
-Accepted open decisions must be recorded so the compiler can preserve the ambiguity intentionally instead of inventing an answer.
-
-## 8. Contradictions
-
-Material contradictions must be resolved before readiness unless the user explicitly chooses a side or accepts the conflict as intentional.
-
-Do not hide contradiction resolution inside prompt compilation.
+Compilation is still not authorized until the independent `PROMPT_COMPILE` Model/Effort Gate passes or is overridden.
 
 ## 9. Cinematic evaluation
 
-`cinematicOpportunitiesEvaluated: true` does not mean generated media or 3D is required.
-
-It means the copilot deliberately considered whether cinematic treatment materially improves the experience and recorded the selected/avoided direction.
+`cinematicOpportunitiesEvaluated: true` does not mean generated media, animation, interaction or 3D is required. `NONE` remains valid when restraint is the stronger direction.
 
 A restrained landing can still satisfy the Web Premium baseline.
 
-## 10. Relationship with enrichment
+## 10. Persistence
 
-If enrichment changes a material field:
-
-1. update/invalidate only affected Conception State fields;
-2. return to `CONCEPTION ACTIVE` when necessary;
-3. resolve the affected delta through the copilot;
-4. re-run readiness;
-5. repeat the checkpoint/finalization path according to `ENRICHMENT-CHECKPOINT.md`.
-
-A previous readiness/finalization result becomes stale after a material state change.
-
-## 11. Persistence
-
-Persist only:
-
-- readiness result/checks;
-- enrichment checkpoint resolution status;
-- finalization status;
-- blockers;
-- explicitly accepted open decisions/overrides;
-- resulting conception state.
-
-Do not persist hidden chain-of-thought.
+Persist only readiness/finalization results, compact critique status/material decisions, blockers, accepted decisions/overrides, resulting Conception State and compact creative/cinematic evidence. Do not persist hidden chain-of-thought.

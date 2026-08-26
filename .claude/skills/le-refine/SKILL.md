@@ -24,7 +24,21 @@ Por que você deseja fazer o refine?
 
 Use o prompt atual e, quando existir, resultado de execução como evidência. Conception State continua sendo a fonte canônica da direção.
 
-Classifique `MINOR | MATERIAL | STRUCTURAL | SCOPE_SHIFT`, atualize/invalide só os fields afetados e use Style/Stack/Suggestion policies apenas quando o delta exigir.
+Classifique `MINOR | MATERIAL | STRUCTURAL | SCOPE_SHIFT`, atualize/invalide só os fields afetados e use Style/Creative Eligibility/Stack/Suggestion policies apenas quando o delta exigir.
+
+Se o Refine alterar território, intensidade, visual direction, sections ou oportunidades cinematográficas, invalide somente a parte criativa afetada e rerode:
+
+```text
+Thematic / Creative Eligibility quando necessário
+→ Creative Intensity quando necessário
+→ Opportunity Pass
+→ Cinematic Enrichment
+→ Creative Hypothesis
+→ Anti-Cliché
+→ Opportunity Prioritization
+```
+
+Não rerode esse pipeline para delta `MINOR` sem impacto na direção. O pass pode retornar `NONE`, não consome o budget user-driven 0..3 e não deve selecionar tecnologia sofisticada por preferência abstrata.
 
 Ao convergir:
 

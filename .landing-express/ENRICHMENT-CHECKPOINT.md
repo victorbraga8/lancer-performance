@@ -1,17 +1,38 @@
-# Landing Express — Enrichment Checkpoint V1.2
+# Landing Express — User-driven Enrichment Checkpoint V1.3
 
-This contract governs the optional enrichment step that happens **after** the conception first reaches `CONCEPTION READY` and **before** the finalization gate that authorizes prompt compilation.
+This contract governs **USER-DRIVEN ENRICHMENT** after the conception has already passed the internal copilot-driven opportunity/enrichment work and first reaches `CONCEPTION READY`.
 
-The goal is to give the user one last opportunity to add something without turning the conception into an unlimited, drifting conversation.
+`COPILOT-DRIVEN ENRICHMENT` and `USER-DRIVEN ENRICHMENT` are different behaviors:
+
+```text
+COPILOT-DRIVEN ENRICHMENT
+- proactive internal pass
+- happens before CONCEPTION READY when material
+- does not consume the user's 0..3 material loops
+- must converge to a prioritized selection or NONE
+
+USER-DRIVEN ENRICHMENT
+- begins when the user explicitly adds or changes something
+- happens through this checkpoint
+- ENRICHMENT / STRUCTURAL consume the existing 0..3 budget
+```
+
+The goal of this checkpoint is to give the user one last opportunity to add something without turning the conception into an unlimited, drifting conversation.
 
 ## 1. Mandatory position
 
 The lifecycle is:
 
 ```text
+THEMATIC / CREATIVE ELIGIBILITY
+    ↓
+CREATIVE INTENSITY MAP
+    ↓
+COPILOT-DRIVEN ENRICHMENT
+    ↓
 CONCEPTION READY
     ↓
-ENRICHMENT CHECKPOINT
+USER-DRIVEN ENRICHMENT CHECKPOINT
     ↓
 No → FINALIZATION GATE
 Yes → classify requested change
@@ -22,8 +43,10 @@ Yes → classify requested change
           ↓
       readiness re-evaluation when needed
           ↓
-      ENRICHMENT CHECKPOINT again while material-loop budget remains
+      USER-DRIVEN ENRICHMENT CHECKPOINT again while material-loop budget remains
 ```
+
+Copilot-driven recommendations never decrement `materialLoopsUsed` merely because the copilot found them proactively.
 
 The checkpoint happens before Finalization Gate. A previous readiness result is not a Finalization PASS.
 
@@ -65,7 +88,8 @@ Instead:
 4. if the class is material (`ENRICHMENT` or `STRUCTURAL`), run `MODEL / EFFORT GATE: ENRICHMENT` before material reasoning;
 5. reopen questions/suggestions only where required;
 6. update/invalidate only affected fields;
-7. re-evaluate readiness when the change can affect it.
+7. if creative territory/intensity becomes stale, reopen only those creative-governance decisions and run one new copilot-driven pass after they converge;
+8. re-evaluate readiness when the change can affect it.
 
 ## 3. Classification
 
@@ -73,25 +97,23 @@ Instead:
 
 A contained adjustment that does not materially change the conception direction or reopen a material decision.
 
-Examples include a small wording preference, a narrowly scoped presentation preference or another low-impact adjustment that can be represented by a selective state update.
-
 Rules:
 
 - does **not** consume a material enrichment loop;
 - does not automatically invalidate unrelated fields;
-- still updates the structured state when the change is material enough to matter to the executor;
-- if the adjustment happens to invalidate readiness evidence, re-evaluate readiness normally.
+- still updates the structured state when needed by the executor;
+- re-evaluate readiness if evidence becomes stale.
 
 ### ENRICHMENT
 
-Adds meaningful detail or capability while preserving the current objective and architecture of the conception.
+Adds meaningful detail or capability while preserving the current objective and architecture.
 
 Rules:
 
 - consumes **1 material enrichment loop**;
-- requires the `ENRICHMENT` Model/Effort Gate before material enrichment reasoning;
+- requires the `ENRICHMENT` Model/Effort Gate before material reasoning;
 - reopens only affected decisions;
-- preserves all unaffected valid fields.
+- preserves unaffected valid fields.
 
 ### STRUCTURAL
 
@@ -102,60 +124,50 @@ Rules:
 - consumes **1 material enrichment loop**;
 - requires the `ENRICHMENT` Model/Effort Gate;
 - explicitly invalidates/reopens affected state fields;
-- returns to `CONCEPTION ACTIVE` until the affected decisions converge;
-- readiness must be re-evaluated before another checkpoint/finalization attempt.
+- returns to `CONCEPTION ACTIVE` until affected decisions converge;
+- readiness must be re-evaluated.
 
 ### SCOPE_SHIFT
 
-The request represents a genuinely new or materially expanded objective that no longer fits safely inside the current conception.
+Represents a genuinely new or materially expanded objective that no longer fits safely inside the current conception.
 
 Rules:
 
-- do not consume another enrichment loop merely to absorb the scope shift;
+- do not consume another enrichment loop merely to absorb it;
 - stop final consolidation;
 - explain the detected scope shift;
 - recommend `Nova interação`;
-- do not silently stretch the existing session into a different product/objective.
+- do not silently stretch the session into a different objective.
 
 ## 4. Material-loop budget
 
 A session may use at most:
 
 ```text
-3 material enrichment loops
+3 material user-driven enrichment loops
 ```
 
-Only `ENRICHMENT` and `STRUCTURAL` consume this budget.
+Only `ENRICHMENT` and `STRUCTURAL` consume this budget. `MINOR` does not. `SCOPE_SHIFT` interrupts consolidation.
 
-`MINOR` does not consume a loop.
-
-`SCOPE_SHIFT` interrupts consolidation rather than consuming the budget.
-
-The counter represents completed/entered material enrichment cycles, **not messages**. Multiple clarification messages inside one material enrichment cycle remain the same cycle until that requested delta converges or is abandoned.
+The counter represents material user-requested cycles, **not messages and not copilot-driven opportunities**.
 
 ## 5. Fourth material request
 
-If `materialLoopsUsed >= 3` and the user asks for another `ENRICHMENT` or `STRUCTURAL` change, do not simply answer `limite atingido`.
+If `materialLoopsUsed >= 3` and the user asks for another `ENRICHMENT` or `STRUCTURAL` change, enter a non-convergence diagnosis instead of silently opening a fourth cycle.
 
-Enter a non-convergence diagnosis.
+Consider:
 
-The diagnosis must consider evidence for:
+- `DIRECTION_NOT_CONVERGED`;
+- `EDITORIAL_OBJECTIVE_CHANGED`;
+- `NEW_IDEA_INVALIDATES_CONSOLIDATED_AREAS`;
+- `SCOPE_GREW_BEYOND_INITIAL_INTENT`;
+- `DECISIONS_CONFLICT`.
 
-- `DIRECTION_NOT_CONVERGED` — the conception still has not stabilized;
-- `EDITORIAL_OBJECTIVE_CHANGED` — the underlying objective has materially changed;
-- `NEW_IDEA_INVALIDATES_CONSOLIDATED_AREAS` — the new request repeatedly reopens already consolidated decisions;
-- `SCOPE_GREW_BEYOND_INITIAL_INTENT` — the session has expanded beyond the original objective;
-- `DECISIONS_CONFLICT` — accumulated requests are materially inconsistent.
-
-The diagnosis should identify the most supported cause(s), explain them concisely and recommend the next safe action.
-
-When significant scope drift or objective replacement is present, recommend `Nova interação`.
-
-If the evidence instead shows a narrow unresolved blocker, return to the specific blocker rather than pretending another full material enrichment cycle is available.
+Recommend `Nova interação` when scope drift or objective replacement is material; otherwise return to the narrow blocker.
 
 ## 6. Structured persistence
 
-Persist enrichment governance inside `conception-state.json` under an `enrichment` object:
+Persist user enrichment governance under `enrichment`:
 
 ```json
 {
@@ -168,17 +180,7 @@ Persist enrichment governance inside `conception-state.json` under an `enrichmen
 }
 ```
 
-A history entry may contain only material operational evidence such as:
-
-```text
-cycle
-classification
-affectedFields
-status
-createdAt
-completedAt
-summary
-```
+Persist copilot-driven enrichment separately under `creativeGovernance.copilotEnrichment`.
 
 Do not persist hidden chain-of-thought or full transcript.
 
@@ -186,14 +188,12 @@ Do not persist hidden chain-of-thought or full transcript.
 
 An enrichment response is never a raw append to the compiled prompt.
 
-After the user provides additional information:
-
 ```text
 USER DELTA
     ↓
 CLASSIFY
     ↓
-AFFECTED CONCEPTION FIELDS
+AFFECTED CONCEPTION / CREATIVE-GOVERNANCE FIELDS
     ↓
 SELECTIVE QUESTIONS / SUGGESTIONS
     ↓
@@ -202,22 +202,19 @@ SELECTIVE STATE UPDATE / INVALIDATION
 READINESS RE-EVALUATION IF MATERIAL
 ```
 
-Only the resulting structured state is later consumed by the Prompt Compiler.
+Only resulting structured state is consumed by the Prompt Compiler.
 
 ## 8. Relationship with Finalization Gate
 
-The Finalization Gate runs only after the user chooses to consolidate and after any accepted enrichment delta has converged.
-
-A prior `CONCEPTION READY` evaluation becomes stale when enrichment invalidates a material field.
-
-Therefore:
+Finalization runs only after the user chooses to consolidate and after any accepted delta has converged.
 
 ```text
 CONCEPTION READY
 → checkpoint
-→ enrichment changes material state
+→ material user delta
 → CONCEPTION ACTIVE
 → resolve affected decisions
+→ optional one-pass copilot re-enrichment if creative basis changed
 → CONCEPTION READY again
 → checkpoint/finalization path
 ```
