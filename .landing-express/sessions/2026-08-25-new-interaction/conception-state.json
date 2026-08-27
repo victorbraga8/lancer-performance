@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "2026-08-25-new-interaction",
+  "status": "PROMPT_READY",
+  "stage": "PROMPT_PRONTO",
+  "stateVersion": 6,
+  "INTENT": "Requalificar a landing como uma experiencia web-cinematic coesa, com mais presenca de cena e imagens, sem depender de Higgsfield para a narrativa ou para a section Exploded State.",
+  "EDITORIAL": {
+    "primaryImpact": ["PREMIUM", "TECHNICAL", "EMOTIONAL"],
+    "tone": "automotivo premium, preciso e cinematografico",
+    "performanceTone": "agressividade controlada",
+    "hierarchy": "a hero estabelece desejo e presenca; as sections seguintes explicam construcao, consequencia de performance e sintese do sistema"
+  },
+  "NARRATIVE": {
+    "progression": "cena do veiculo -> leitura da arquitetura -> processo construtivo -> consequencia em performance -> fechamento do sistema",
+    "transitionIntent": "continuidade controlada entre hero e arquitetura; contraste entre explicacao e performance; retorno calmo e organizado no fechamento"
+  },
+  "VISUAL_DIRECTION": {
+    "baseline": "web-cinematic com materialidade, profundidade, luz controlada e uma unica enfase dominante por section",
+    "theme": "automotiva esportiva dark, grafite e preto com acentos vermelhos contidos",
+    "environment": "estudio escuro de precisao, coerente com os ativos digitais existentes",
+    "generatedMedia": "Sem geracao externa: usar somente os ativos digitais existentes e mecanismos deterministas"
+  },
+  "CINEMATIC_OPPORTUNITIES": [
+    {
+      "section": "hero",
+      "asset": "/assets/higgsfield/lancer-hero.png",
+      "purpose": "presenca principal do veiculo, com escala, luz e profundidade controladas"
+    },
+    {
+      "section": "process",
+      "asset": "/assets/higgsfield/lancer-front-detail.png",
+      "purpose": "prova de materialidade e precisao construtiva"
+    },
+    {
+      "section": "closing",
+      "asset": "/assets/higgsfield/lancer-rear-cta.png",
+      "purpose": "fechamento visual do sistema completo"
+    }
+  ],
+  "MOTION": {
+    "principle": "movimento programatico, reversivel e secundario aos ativos; sem video Higgsfield; uma linha de carga conecta hero e arquitetura",
+    "recommendedTools": "Motion/GSAP apenas para transicoes e sequencias de scroll que precisem de controle mais refinado; CSS e SVG para o restante",
+    "responsiveBehavior": "reduced motion preserva leitura estatica e os movimentos nunca deslocam texto para fora de sua zona segura; no mobile, a cena simplifica e as anotacoes viram blocos de leitura"
+  },
+  "THREE_D": {
+    "status": "APPROVED_SCOPED",
+    "recommendation": "usar Three.js somente na section de arquitetura para revelar profundidade espacial durante a rolagem; nao usar como efeito global"
+  },
+  "TECHNICAL_REQUIREMENTS": {
+    "legibility": "textos devem ocupar zonas de leitura livres, com contraste e hierarquia preservados; labels e elementos de cena nao podem invadir copy, controles ou areas de foco",
+    "mobile": "mobile e uma composicao propria: reenquadrar ativos, simplificar overlays, reposicionar ou reduzir anotacoes e manter controles alcançaveis; nao escalar mecanicamente o desktop",
+    "accessibility": "preservar reduced motion, foco visivel, contraste adequado, alvos de toque e ausencia de overflow horizontal"
+  },
+  "INTERACTIONS": {
+    "hero": "ignicao controlada por recorte de luz e acento vermelho discreto no piso",
+    "process": "mascara de luz revela tres areas de precisao no close frontal; anotacoes curtas surgem apenas em zonas seguras",
+    "performance": "uma progressao visual unica conecta potencia, tracao, frenagem e chassi",
+    "closing": "mascara suave organiza a traseira e o CTA sobre um unico eixo"
+  },
+  "readiness": {
+    "editorialCoherent": true,
+    "premiumBaselineSatisfied": true,
+    "cinematicOpportunitiesEvaluated": true,
+    "technologiesEvaluated": true,
+    "constraintsKnown": true,
+    "contradictionsResolved": true
+  },
+  "finalization": {
+    "enrichmentCheckpointResolved": true,
+    "status": "PASS",
+    "blocker": null,
+    "resolvedAt": "2026-08-25T15:09:11.9473167-03:00"
+  },
+  "SECTIONS": [
+    {
+      "id": "hero",
+      "role": "criar primeiro impacto e valorizar a presenca do Lancer em uma cena cinematografica",
+      "status": "REOPENED"
+    },
+    {
+      "id": "engineering",
+      "role": "explicar a arquitetura sem a dependencia visual do Exploded State/Higgsfield",
+      "status": "REOPENED"
+    },
+    {
+      "id": "process",
+      "role": "dar relevancia visual ao processo construtivo",
+      "status": "REOPENED"
+    },
+    {
+      "id": "performance",
+      "role": "transformar consequencias de performance em um pico visual proprio",
+      "status": "REOPENED"
+    },
+    {
+      "id": "closing",
+      "role": "sintetizar o sistema completo com menos excesso e linhas organizadas",
+      "status": "REOPENED"
+    }
+  ],
+  "CONSTRAINTS": [
+    "Nao usar Higgsfield como motor visual ou dependencia da experiencia.",
+    "Evitar excesso de mecanismos concorrentes e preservar reduced motion, responsividade e hierarquia."
+  ],
+  "OPEN_DECISIONS": [],
+  "enrichment": {
+    "maxMaterialLoops": 3,
+    "materialLoopsUsed": 1,
+    "activeCycle": null,
+    "history": [
+      {
+        "cycle": 1,
+        "classification": "ENRICHMENT",
+        "affectedFields": ["CINEMATIC_OPPORTUNITIES", "MOTION", "INTERACTIONS", "SECTIONS"],
+        "status": "COMPLETED",
+        "createdAt": "2026-08-25T15:05:04.0848351-03:00",
+        "completedAt": "2026-08-25T15:08:17.8225917-03:00",
+        "summary": "Solicitacao de sugestoes para enriquecer a experiencia web-cinematic premium."
+      }
+    ],
+    "lastClassification": "ENRICHMENT",
+    "diagnosis": null
+  },
+  "invalidatedFields": [],
+  "createdAt": "2026-08-25T17:46:23.615Z",
+  "updatedAt": "2026-08-25T15:10:07.6074351-03:00",
+  "gates": [
+    {
+      "action": "ENRICHMENT",
+      "recommendedModel": "gpt-5.6-terra",
+      "recommendedEffort": "medium",
+      "activeModel": "gpt-5.6-terra",
+      "activeEffort": "medium",
+      "status": "PASS",
+      "modelSource": "CODEX_ACTIVE_TURN_CONTEXT",
+      "effortSource": "CODEX_ACTIVE_TURN_CONTEXT"
+    },
+    {
+      "action": "PROMPT_COMPILE",
+      "recommendedModel": "gpt-5.6-terra",
+      "recommendedEffort": "medium",
+      "activeModel": "gpt-5.6-terra",
+      "activeEffort": "medium",
+      "status": "PASS",
+      "modelSource": "CODEX_ACTIVE_TURN_CONTEXT",
+      "effortSource": "CODEX_ACTIVE_TURN_CONTEXT"
+    }
+  ],
+  "prompt": {
+    "version": 1,
+    "artifactPath": ".landing-express/sessions/2026-08-25-new-interaction/prompt-v1.md",
+    "recommendedModel": "gpt-5.6-sol",
+    "recommendedEffort": "high"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "status": "EXECUTION_COMPLETE",
+  "executedPromptVersion": 3,
+  "executedPromptVersion": 2,
+  "classification": "MATERIAL",
+  "reason": "Refinar comportamento de Performance, enquadramento do carro, composição mobile do Processo, luz e tipografia; avaliar dois assets externos.",
+  "affectedFields": ["SECTIONS", "INTERACTIONS", "MOTION", "CINEMATIC_OPPORTUNITIES", "STYLE", "TECHNICAL_REQUIREMENTS"],
+  "assetReview": {
+    "higgsfield": {
+      "status": "REVIEWED",
+      "content": "motor biturbo em estúdio escuro",
+      "recommendedPlacement": "módulo de detalhe em Performance associado a Power delivery, sem substituir o Lancer como mídia principal",
+      "constraint": "a versão pública contém watermark Higgsfield AI; exigir recorte que não o inclua ou arquivo original sem marca"
+    },
+    "gemini": {
+      "status": "REVIEWED",
+      "resolvedAsset": "public/assets/roda.jpg",
+      "approvedPlacement": "subordinate braking/chassis evidence in Performance",
+      "source": "https://gemini.google.com/share/fbd16cde2f9f?skid=bbca65a8-02af-4849-868f-0890521a149a",
+      "constraint": "o compartilhamento público não expôs uma mídia do usuário recuperável para inspeção"
+    }
+  },
+  "refinePlan": {
+    "classification": "MATERIAL",
+    "processMobile": "Shift static hood flags toward center/right and reduce the visual container so no unused lower void remains.",
+    "performance": "Map Power to motor.png, Traction to cambio.jpg, Brake to roda.jpg and Chassis to suspensao.jpg. Mobile promotes the selected evidence into the same viewport as compact controls; desktop keeps it subordinate to the Lancer.",
+    "backToTop": "Persistent fixed anchor across desktop and mobile, accessible and visually quiet.",
+    "budget": "No new section, dependency, shader, generated media or generic visual effect."
+  },
+  "createdAt": "2026-08-26T18:58:35.952Z"
+}

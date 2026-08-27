@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "2026-08-25-hero-authority-refinement",
+  "promptVersion": 1,
+  "state": "EXECUTION_COMPLETE",
+  "gate": {
+    "action": "PROMPT_EXECUTION",
+    "requiredProfile": "ADVANCED/MEDIUM",
+    "activeModel": "claude-sonnet-5",
+    "activeEffort": "high",
+    "status": "PASS"
+  },
+  "startedAt": "2026-08-25T00:00:00.000Z",
+  "completedAt": "2026-08-25T00:00:00.000Z",
+  "filesChanged": {
+    "deleted": [
+      "src/components/WheelSequence.jsx",
+      "src/components/ArchitectureScene.jsx",
+      "src/components/ArchitectureFallback.jsx",
+      "src/hooks/useArchitectureSceneMode.js"
+    ],
+    "created": [
+      "src/components/HeroLightScene.jsx"
+    ],
+    "modified": [
+      "src/App.jsx",
+      "src/components/Hero.jsx",
+      "src/components/Header.jsx",
+      "src/components/DesignLanguage.jsx",
+      "src/data/headerNavigation.js",
+      "src/styles.css"
+    ]
+  },
+  "outcomeSummary": "WheelSequence e toda a arquitetura exclusiva dele (ArchitectureScene/Fallback, hook de modo espacial, CSS .architecture-*/.fallback-*) removidos. Hero simplificada para uma única linha de piso (.hero-floor-accent); .hero-load-path removido. Nova camada de luz programática (HeroLightScene, R3F: dust field + key glow + rim glow, lazy-loaded, desativada em prefers-reduced-motion) substitui o que dependeria de nova geração Higgsfield. .hero-meta (Focus/Sequence) e .text-link (Deconstruct the system) redesenhados para mais cor/relevância visual. Bullets de 'Authority lives in the assembly' com copy mais técnica e hover/active mais ricos (glow radial, inset bar, ícone circular). Âncora #engineering removida junto com a seção; Hero, Header CTA e nav agora apontam para #process (correção funcional necessária, fora do escopo original mas obrigatória para não deixar link morto). Auditoria de tipografia aplicada site-wide em labels mono (8-11px -> piso 9-13px) com leve ganho de peso/contraste.",
+  "validations": [
+    "npm run build: sucesso, 460 módulos, sem erros",
+    "grep de resíduos (WheelSequence/architecture-*/fallback-*/hero-load-path/#engineering): nenhum resultado"
+  ],
+  "materialFailures": [],
+  "deviationsFromPrompt": [
+    "Prompt v1 listava Header.jsx como PRESERVE/fora de escopo, mas a remoção de #engineering exigia atualizar o CTA do Header e a lista de navegação para não deixar um link morto — tratado como correção funcional mínima, não redesign."
+  ]
+}

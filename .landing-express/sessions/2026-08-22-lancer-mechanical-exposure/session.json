@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "2026-08-22-lancer-mechanical-exposure",
+  "kind": "recovered-review",
+  "executionContext": "EVOLUTION",
+  "status": "COMPLETED",
+  "source": "conversation-and-worktree",
+  "artifactCompleteness": "PARTIAL",
+  "missingSourceArtifacts": [
+    "direction.md",
+    "build-prompt.md"
+  ],
+  "createdAt": "2026-08-22T22:19:40.1086136-03:00",
+  "updatedAt": "2026-08-24T17:04:14.7445337-03:00"
+}

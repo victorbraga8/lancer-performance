@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 3,
+  "status": "native-mapping-operational-action-floor-calibration-pending",
+  "abstractCapabilityBands": ["LIGHT", "GENERAL", "ADVANCED", "FRONTIER"],
+  "effortBands": ["LOW", "MEDIUM", "HIGH", "XHIGH"],
+  "actions": {
+    "START": {
+      "capabilityFloor": "LIGHT",
+      "effortFloor": "LOW",
+      "gateMode": "ROUTER_ONLY",
+      "validatedFloor": null
+    },
+    "NEW_INTERACTION": {
+      "capabilityFloor": "GENERAL",
+      "effortFloor": "MEDIUM",
+      "validatedFloor": null
+    },
+    "RESUME": {
+      "capabilityFloor": "GENERAL",
+      "effortFloor": "MEDIUM",
+      "validatedFloor": null
+    },
+    "ENRICHMENT": {
+      "capabilityFloor": "GENERAL",
+      "effortFloor": "MEDIUM",
+      "validatedFloor": null
+    },
+    "PROMPT_COMPILE": {
+      "capabilityFloor": "GENERAL",
+      "effortFloor": "MEDIUM",
+      "validatedFloor": null
+    },
+    "PROMPT_EXECUTION": {
+      "capabilityFloor": "LIGHT",
+      "effortFloor": "LOW",
+      "recommendationBasis": "actual-compiled-prompt",
+      "validatedFloor": null
+    },
+    "REFINE": {
+      "capabilityFloor": "LIGHT",
+      "effortFloor": "LOW",
+      "validatedFloor": null
+    }
+  },
+  "profileDimensions": [
+    "capabilityFloor",
+    "effortFloor",
+    "ambiguity",
+    "novelty",
+    "risk",
+    "specificationStrength",
+    "creativeEditorialDemand",
+    "contextBreadth"
+  ],
+  "surfaces": {
+    "codex": {
+      "nativeSelectorPolicy": "runtime-detected-active-turn-preferred",
+      "nativeMappings": {
+        "capability": {
+          "LIGHT": "gpt-5.6-luna",
+          "GENERAL": "gpt-5.6-terra",
+          "ADVANCED": "gpt-5.6-sol",
+          "FRONTIER": "gpt-5.6-sol"
+        },
+        "modelOrder": ["gpt-5.6-luna", "gpt-5.6-terra", "gpt-5.6-sol"],
+        "effort": {
+          "LOW": "low",
+          "MEDIUM": "medium",
+          "HIGH": "high",
+          "XHIGH": "xhigh"
+        },
+        "effortOrder": ["none", "minimal", "low", "medium", "high", "xhigh", "max"],
+        "status": "operational-native-family-mapping",
+        "basis": "provider-native family roles and supported reasoning effort; independent from empirical action-floor validation"
+      },
+      "activeRuntimeDetection": {
+        "preferred": "CODEX_THREAD_ID -> active rollout -> latest turn_context(model, effort)",
+        "configuredFallbackIsProof": false
+      },
+      "validatedMappings": {},
+      "actionFloors": {
+        "START": { "status": "ROUTER_ONLY" },
+        "NEW_INTERACTION": { "status": "PENDING" },
+        "RESUME": { "status": "PENDING" },
+        "ENRICHMENT": { "status": "PENDING" },
+        "PROMPT_COMPILE": { "status": "PENDING" },
+        "PROMPT_EXECUTION": { "status": "PENDING", "basis": "compiled-prompt-complexity" },
+        "REFINE": { "status": "PENDING" }
+      }
+    },
+    "claude": {
+      "nativeSelectorPolicy": "runtime-confirmed-only",
+      "candidateFamilies": {
+        "Sonnet": "candidate-runtime-family",
+        "Opus": "candidate-runtime-family"
+      },
+      "effortPolicy": "use-only-runtime-supported-values",
+      "validatedMappings": {},
+      "actionFloors": {
+        "START": { "status": "ROUTER_ONLY" },
+        "NEW_INTERACTION": { "status": "PENDING" },
+        "RESUME": { "status": "PENDING" },
+        "ENRICHMENT": { "status": "PENDING" },
+        "PROMPT_COMPILE": { "status": "PENDING" },
+        "PROMPT_EXECUTION": { "status": "PENDING", "basis": "compiled-prompt-complexity" },
+        "REFINE": { "status": "PENDING" }
+      }
+    }
+  },
+  "planningHypotheses": {
+    "START": "router only; the selected first material action owns the first hard gate",
+    "NEW_INTERACTION": "GENERAL/MEDIUM baseline; final action floor still requires empirical validation",
+    "RESUME": "GENERAL/MEDIUM baseline; final action floor still requires empirical validation",
+    "PROMPT_EXECUTION": "starts at LIGHT/LOW and rises only from actual compiled prompt complexity"
+  },
+  "rules": {
+    "genericModelLabelsForbiddenWhenNativeResolutionExists": true,
+    "inventUnsupportedSelector": false,
+    "mappingMustRemainCentralized": true,
+    "lifecycleMayHardcodeNativeModelNames": false,
+    "nativeFamilyMappingIsNotActionFloorValidation": true,
+    "activeRuntimeEvidencePreferredOverConfiguration": true,
+    "configuredDefaultMustNotOverrideActiveTurn": true,
+    "startIsRouterNotHardGate": true,
+    "promptExecutionComplexityDriven": true,
+    "recalculateBeforeEveryMaterialAction": true,
+    "interruptUserOnlyOnMaterialGateMismatch": true,
+    "finalFloorsRequireEmpiricalValidation": true
+  }
+}

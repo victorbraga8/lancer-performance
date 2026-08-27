@@ -1,3 +1,5 @@
+import { headerNavigationItems } from '../data/headerNavigation'
+
 const DiamondMark = () => (
   <svg viewBox="0 0 42 38" aria-hidden="true" className="brand-mark">
     <path d="M21 1 11 18h20L21 1Z" />
@@ -6,7 +8,7 @@ const DiamondMark = () => (
   </svg>
 )
 
-export default function Header({ compact }) {
+export default function Header({ compact, activeSection }) {
   return (
     <header className={`site-header ${compact ? 'is-compact' : ''}`}>
       <a className="brand" href="#hero" aria-label="Lancer concept home">
@@ -14,11 +16,17 @@ export default function Header({ compact }) {
         <span><b>MITSUBISHI</b><small>LANCER CONCEPT</small></span>
       </a>
       <nav aria-label="Primary navigation">
-        <a href="#engineering">Engineering</a>
-        <a href="#performance">Performance</a>
-        <a href="#design">Design</a>
+        {headerNavigationItems.map((item) => (
+          <a
+            key={item.id}
+            href={`#${item.id}`}
+            aria-current={activeSection === item.id ? 'location' : undefined}
+          >
+            {item.label}
+          </a>
+        ))}
       </nav>
-      <a className="header-cta" href="#contact">Configure the drive <span aria-hidden="true">↗</span></a>
+      <a className="header-cta" href="#process">Inspect the system <span aria-hidden="true">↓</span></a>
     </header>
   )
 }

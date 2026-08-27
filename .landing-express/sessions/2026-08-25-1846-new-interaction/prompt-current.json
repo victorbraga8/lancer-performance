@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "status": "PROMPT_READY",
+  "artifactPath": ".landing-express/sessions/2026-08-25-1846-new-interaction/prompt-v1.md",
+  "compiledAt": "2026-08-25T18:59:38.338Z",
+  "sourceConceptionStateVersion": 4,
+  "recommendation": {
+    "capabilityProfile": "ADVANCED",
+    "effortProfile": "HIGH",
+    "model": "gpt-5.6-sol",
+    "effort": "high",
+    "basis": "Quatro seções interdependentes, cena 3D limitada, interações acessíveis, responsividade e restrições de preservação."
+  },
+  "compileGate": {
+    "action": "PROMPT_COMPILE",
+    "requiredModel": "gpt-5.6-terra",
+    "requiredEffort": "medium",
+    "activeModel": "gpt-5.6-terra",
+    "activeEffort": "medium",
+    "status": "PASS",
+    "modelSource": "CODEX_ACTIVE_TURN_CONTEXT",
+    "effortSource": "CODEX_ACTIVE_TURN_CONTEXT",
+    "actionFloorValidation": "PENDING"
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "2026-08-26-new-interaction",
+  "sessionPath": ".landing-express/sessions/2026-08-26-new-interaction",
+  "status": "COMPLETED",
+  "endStage": "INTERACTION COMPLETE",
+  "refineStage": "EXECUTION COMPLETE",
+  "latestPromptVersion": 3,
+  "stage": "EXECUÇÃO CONCLUÍDA",
+  "source": "new-interaction",
+  "createdAt": "2026-08-26T17:41:30.242Z",
+  "updatedAt": "2026-08-26T15:02:38.8806286-03:00",
+  "gates": [
+    {
+      "action": "NEW_INTERACTION",
+      "profile": "GENERAL/MEDIUM",
+      "activeModel": "gpt-5.6-terra",
+      "activeEffort": "medium",
+      "status": "PASS",
+      "modelSource": "CODEX_ACTIVE_TURN_CONTEXT",
+      "effortSource": "CODEX_ACTIVE_TURN_CONTEXT"
+    }
+  ,
+    {
+      "action": "PROMPT_COMPILE",
+      "profile": "GENERAL/MEDIUM",
+      "activeModel": "gpt-5.6-terra",
+      "activeEffort": "medium",
+      "status": "PASS",
+      "modelSource": "CODEX_ACTIVE_TURN_CONTEXT",
+      "effortSource": "CODEX_ACTIVE_TURN_CONTEXT"
+    }
+  ,
+    {
+      "action": "PROMPT_COMPILE",
+      "profile": "GENERAL/MEDIUM",
+      "activeModel": "gpt-5.6-terra",
+      "activeEffort": "medium",
+      "status": "PASS",
+      "modelSource": "CODEX_ACTIVE_TURN_CONTEXT",
+      "effortSource": "CODEX_ACTIVE_TURN_CONTEXT",
+      "reason": "material refine consolidated with a local approved wheel asset"
+    }
+  ,
+    {
+      "action": "REFINE",
+      "profile": "LIGHT/LOW",
+      "activeModel": "gpt-5.6-sol",
+      "activeEffort": "high",
+      "status": "OVERRIDDEN",
+      "modelSource": "CODEX_ACTIVE_TURN_CONTEXT",
+      "effortSource": "CODEX_ACTIVE_TURN_CONTEXT",
+      "reason": "User authorized override for this refine entry."
+    }
+  ,
+    {
+      "action": "PROMPT_COMPILE",
+      "profile": "GENERAL/MEDIUM",
+      "activeModel": "gpt-5.6-terra",
+      "activeEffort": "medium",
+      "status": "PASS",
+      "modelSource": "CODEX_ACTIVE_TURN_CONTEXT",
+      "effortSource": "CODEX_ACTIVE_TURN_CONTEXT",
+      "reason": "Material mobile polish and asset-routing refine compiled as prompt v3."
+    }
+  ,
+    {
+      "action": "PROMPT_EXECUTION",
+      "profile": "ADVANCED/HIGH",
+      "activeModel": "gpt-5.6-terra",
+      "activeEffort": "medium",
+      "status": "OVERRIDDEN",
+      "modelSource": "CODEX_ACTIVE_TURN_CONTEXT",
+      "effortSource": "CODEX_ACTIVE_TURN_CONTEXT",
+      "reason": "User authorized override for prompt v3 execution."
+    }
+  ]
+}

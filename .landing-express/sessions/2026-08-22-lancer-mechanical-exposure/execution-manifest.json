@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "mode": "REFINE",
+  "executionContext": "EVOLUTION",
+  "status": "COMPLETED",
+  "capabilities": {
+    "codingAgent": "PASS",
+    "higgsfield": "OPTIONAL_NOT_AVAILABLE_NOT_USED",
+    "browserVerification": "OPTIONAL_NOT_AUTHORIZED"
+  },
+  "fallback": {
+    "assetId": "A01",
+    "policy": "EXPLICIT_TEMPORARY_OVERRIDE",
+    "acceptedImplementation": "static-still-plus-svg",
+    "pending": true
+  },
+  "generationBudget": {
+    "remainingCredits": 3.8,
+    "plannedConsumption": 0,
+    "regenerationAllowed": false
+  },
+  "preservationContract": "refinement-prompt-navigation.md",
+  "resultArtifact": "execution-result.json",
+  "startedAt": "2026-08-24T17:00:27.5090866-03:00",
+  "completedAt": "2026-08-24T17:04:14.7445337-03:00"
+}

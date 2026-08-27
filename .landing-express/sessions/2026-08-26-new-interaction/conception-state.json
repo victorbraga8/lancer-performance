@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "2026-08-26-new-interaction",
+  "INTENT": "Evoluir a landing existente do Lancer Performance como base aprovada, preservando o território técnico, mecânico, premium e controlado. Antes de implementar, realizar crítica editorial, tipográfica, cinematográfica e responsiva para selecionar somente intervenções materiais.",
+  "AUDIENCE": "Entusiastas automotivos e público técnico que valoriza engenharia, precisão e presença premium.",
+  "EDITORIAL": {
+    "primaryImpact": ["TECHNICAL", "PREMIUM", "EMOTIONAL"],
+    "tone": "agressividade controlada, precisão mecânica e contenção editorial",
+    "narrativeGoal": "fazer o Lancer conduzir uma progressão contínua de presença, construção, consequência de performance e fechamento",
+    "hierarchy": "Hero é o pico de presença; Processo prova precisão; Performance é o segundo pico gráfico; Fechamento é uma recovery zone sóbria."
+  },
+  "NARRATIVE": {
+    "progression": "presença do Lancer → construção e superfície → consequências mecânicas → retorno ao sistema",
+    "continuity": "o acento vermelho se transforma de linha de piso na Hero em eixo de processo, linha de progressão na Performance e eixo final no Fechamento",
+    "intensityCurve": "INTENSIDADE → RECOVERY/PROVA → INTENSIDADE RENOVADA → RECOVERY"
+  },
+  "STYLE": {
+    "summary": "estúdio escuro de precisão: grafite e preto, vermelho pontual, profundidade concentrada no veículo e contenção editorial",
+    "typography": "headlines amplas, leves e tensionadas; mono reservado para índices e estados, com piso de legibilidade elevado",
+    "composition": "uma ênfase dominante por section, zonas de leitura livres e transições por motivos mecânicos",
+    "density": "controlada; remover camadas que disputem o protagonismo do carro",
+    "colorLuminance": "luz localizada de estúdio e vermelho como vetor de carga, nunca como glow decorativo",
+    "motionCharacter": "determinístico, técnico, reversível e secundário ao ativo principal",
+    "interactionCharacter": "estados de processo e performance claros, com equivalentes de toque e foco"
+  },
+  "SECTIONS": {
+    "Hero": {
+      "role": "pico de presença do Lancer",
+      "desktop": "preservar carro, headline e linha de piso; recalibrar a camada R3F para recorte e volume de estúdio, sem poeira ou pulsos abstratos em primeiro plano",
+      "mobile": "PRESERVE + ADAPT: manter carro e headline como dupla principal, proteger duas linhas e reenquadrar para frente/roda"
+    },
+    "Process": {
+      "role": "prova de construção e precisão de superfície",
+      "desktop": "manter detalhe frontal e anotações, usando o eixo de continuidade como transição da Hero",
+      "mobile": "REFLOW + REDESIGN: texto antes da imagem; callouts posicionados viram módulos de leitura"
+      ,"mobileRefine": "Shift static technical flags toward center/right over the hood and remove unused lower visual space."
+    },
+    "Performance": {
+      "role": "segundo pico narrativo e consequência mecânica",
+      "desktop": "uma linha de progressão conecta quatro atributos; mídia permanece estável e os estados respondem com contenção",
+      "mobile": "REDESIGN: sequência vertical própria, mídia curta e itens táteis sem replicar a grade desktop"
+      ,"mobileRefine": "Compact controls and selected evidence share one viewport; map Power/motor, Traction/transmission, Brake/wheel and Chassis/suspension."
+    },
+    "Closing": {
+      "role": "recovery zone e síntese do sistema",
+      "desktop": "preservar traseira, eixo e retorno ao início sem competir com os picos anteriores",
+      "mobile": "ADAPT + HIDE: concentrar enquadramento, CTA e eixo; reduzir informação secundária"
+    }
+  },
+  "CINEMATIC_OPPORTUNITIES": [
+    "Motivo contínuo de linha/eixo vermelho transformado entre as quatro sections.",
+    "Luz espacial de estúdio restrita à Hero para reforçar recorte e volume do carro.",
+    "Linha de consequência na Performance como segundo pico gráfico, sem nova atmosfera.",
+    "Recomposição mobile por intenção, não compressão de desktop."
+  ],
+  "REFINE_V2": {
+    "status": "RESOLVED",
+    "performance": {
+      "interaction": "selection and hover are separate states: selected marker is soft red after pointer departure; hovered marker is full red",
+      "media": "keep Lancer primary and shift its crop toward the front/hood; use roda.jpg only as a subordinate braking/chassis evidence insert"
+    },
+    "process": {
+      "mobile": "HIDE interactive tabs; REPLACE them with three static technical flags positioned on safe hood zones, with no pointer dependency"
+    },
+    "lighting": "use one masked CSS/Motion hood light pass only; do not add Three.js/R3F usage beyond the existing Hero lighting or introduce a new dependency",
+    "typography": "keep headlines light and tense; apply uppercase 600-700 selectively to technical flags and Performance labels, never to body copy",
+    "assets": {
+      "roda": "public/assets/roda.jpg; dark studio wheel with red rim and caliper; subordinate braking/chassis evidence",
+      "higgsfield": "not approved for use until a watermark-safe crop or original file is supplied"
+    }
+  },
+  "MOTION": {
+    "roles": "Hero: SUPPORTING/PROGRAMMATIC_MOTION; Processo: SUPPORTING/UI_MOTION; Performance: PRIMARY/UI_MOTION; Fechamento: STATIC com UI_MOTION discreto",
+    "reducedMotion": "remover animações contínuas e preservar a leitura estática, estados e continuidade por composição",
+    "avoid": ["smoke", "particles visíveis", "parallax genérico", "shaders decorativos", "glow volumoso"]
+  },
+  "INTERACTIONS": {
+    "Process": "estados ativos, hover, foco e toque explicitam o detalhe selecionado",
+    "Performance": "progressão e foco de atributo respondem sem deslocar a mídia nem introduzir animação concorrente"
+  },
+  "BACK_TO_TOP": "fixed accessible anchor remains visible throughout the journey without competing with primary CTA",
+  "TECHNICAL_REQUIREMENTS": {
+    "stackBaseline": ["React 19", "Vite 7", "motion/react", "@react-three/fiber", "three"],
+    "approvedDependencies": [],
+    "avoidDependencies": ["GSAP", "nova biblioteca de animação", "nova biblioteca 3D"],
+    "routing": "usar Motion para transições e estados; manter R3F apenas na Hero para luz espacial quando a implementação preservar contenção e performance"
+  },
+  "CONSTRAINTS": [
+    "Preservar a identidade escura/preta, acentos vermelhos e protagonismo do Lancer.",
+    "Não introduzir efeitos ou dependências por convenção automotiva; cada mecanismo precisa sustentar tensão, precisão ou percepção premium.",
+    "Tratar mobile como composição própria, preservar reduced motion, contraste, alvos de toque e ausência de overflow horizontal.",
+    "Manter a direção em concepção até que as recomendações sejam aprovadas; não implementar nesta rodada."
+  ],
+  "OPEN_DECISIONS": [
+    "Anexar o asset do Gemini ou fornecer uma URL direta de imagem/vídeo para decidir sua inclusão.",
+    "Confirmar uso do asset Higgsfield somente com crop que não inclua watermark ou com arquivo original sem marca."
+  ],
+  "enrichment": {
+    "maxMaterialLoops": 3,
+    "materialLoopsUsed": 0,
+    "activeCycle": null,
+    "history": [],
+    "lastClassification": null,
+    "diagnosis": null
+  },
+  "creativeGovernance": {
+    "initiative": {
+      "mode": "HIGH_INITIATIVE_BOUNDED_AUTHORITY",
+      "authorityLevels": ["AUTO", "RECOMMEND", "COMPARE", "ASK"]
+    },
+    "thematicEligibility": {
+      "status": "RESOLVED",
+      "territory": "estúdio mecânico de precisão",
+      "emotionalField": "tensão controlada e confiança técnica",
+      "culturalVisualTerritory": "automotivo premium sem clichês de corrida ou ficção científica",
+      "desiredIntensity": "VARIABLE",
+      "materiality": "grafite, preto, recorte de luz e vermelho pontual",
+      "typographyCharacter": "ampla, leve, precisa e tecnicamente indexada",
+      "atmosphereEligibility": ["luz de estúdio localizada"],
+      "motionCharacter": "técnico, determinístico e contido",
+      "spatialCharacter": "profundidade concentrada na Hero",
+      "interactionCharacter": "estados funcionais e legíveis"
+    },
+    "intensityMap": {
+      "status": "RESOLVED",
+      "diagnosis": "CALIBRATED",
+      "dimensions": {
+        "visual": "VARIABLE",
+        "motion": "MODERATE",
+        "atmospheric": "LOW",
+        "typographicTension": "HIGH",
+        "spatial": "MODERATE",
+        "interaction": "MODERATE"
+      }
+    },
+    "copilotEnrichment": {
+      "status": "RESOLVED",
+      "passCount": 1,
+      "opportunitiesConsidered": 5,
+      "selectedCount": 4,
+      "responsiveReviewed": true,
+      "considered": ["continuidade", "luz Hero", "Performance", "tipografia", "mobile"],
+      "selected": ["continuidade", "luz Hero", "Performance", "mobile"],
+      "summary": "Selecionadas quatro intervenções de alto valor; tipografia é requisito transversal das quatro."
+    }
+  },
+  "createdAt": "2026-08-26T17:41:30.242Z",
+  "readiness": {
+    "editorialCoherent": true,
+    "premiumBaselineSatisfied": true,
+    "cinematicExperienceCoherent": true,
+    "creativeDirectorCritique": "RESOLVED",
+    "cinematicOpportunitiesEvaluated": true,
+    "technologiesEvaluated": true,
+    "constraintsKnown": true,
+    "contradictionsResolved": true
+  },
+  "finalization": {
+    "status": "PASS",
+    "enrichmentCheckpointResolved": true,
+    "acceptedDecision": "Direção priorizada aprovada pelo usuário."
+  },
+  "updatedAt": "2026-08-26T17:52:09.475Z"
+}

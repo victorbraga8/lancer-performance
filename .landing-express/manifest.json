@@ -1,0 +1,22 @@
+{
+  "version": "0.3.0",
+  "productStage": "v1.3-copilot-initiative-in-progress",
+  "mode": "editorial-copilot-prompt-compiler-and-governed-execution",
+  "entrypoint": "le-start",
+  "publicCommands": [
+    "le-start",
+    "le-refine",
+    "le-end"
+  ],
+  "migration": "v1.1-core-absorbed",
+  "runtimeIdentity": "active-turn-preferred",
+  "gateRecovery": "pending-action-resumable",
+  "promptExecution": "in-interaction-governed",
+  "copilotInitiative": "high-initiative-bounded-authority",
+  "creativeEligibility": "required-before-conception-ready",
+  "runtimes": [
+    "claude",
+    "codex"
+  ],
+  "updatedAt": "2026-08-26T17:32:27.681Z"
+}

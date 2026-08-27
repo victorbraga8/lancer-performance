@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "policy": {
+    "silentFallback": "forbidden"
+  },
+  "capabilities": {
+    "codingAgent": {
+      "provider": "active-surface",
+      "required": true
+    },
+    "higgsfield": {
+      "provider": "surface-tool",
+      "requiredWhenReferenced": true,
+      "fallback": "block"
+    },
+    "imageGeneration": {
+      "provider": "surface-tool",
+      "requiredWhenReferenced": true,
+      "fallback": "block"
+    }
+  }
+}

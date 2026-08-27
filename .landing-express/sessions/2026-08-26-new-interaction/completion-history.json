@@ -1,0 +1,10 @@
+[
+  {
+    "status": "COMPLETED",
+    "completedAt": "2026-08-26T17:48:14.5562134-03:00",
+    "promptVersion": 3,
+    "refineCount": 2,
+    "recommendedModel": "gpt-5.6-sol",
+    "recommendedEffort": "high"
+  }
+]

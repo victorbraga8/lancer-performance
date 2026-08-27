@@ -1,0 +1,38 @@
+[
+  {
+    "version": 2,
+    "classification": "MATERIAL",
+    "status": "PROMPT_READY",
+    "promptArtifact": ".landing-express/sessions/2026-08-26-new-interaction/prompt-v2.md",
+    "summary": "Separated Performance selected/hovered states, reframed the Lancer toward hood/front, approved roda.jpg as subordinate braking/chassis evidence, redesigned Process mobile flags, and constrained light and typography changes.",
+    "promptCompileGate": {
+      "activeModel": "gpt-5.6-terra",
+      "activeEffort": "medium",
+      "status": "PASS",
+      "evidence": "CODEX_ACTIVE_TURN_CONTEXT"
+    },
+    "executionRecommendation": {
+      "model": "gpt-5.6-sol",
+      "effort": "high"
+    },
+    "createdAt": "2026-08-26T19:09:43.527Z"
+  },
+  {
+    "version": 3,
+    "classification": "MATERIAL",
+    "status": "PROMPT_READY",
+    "promptArtifact": ".landing-express/sessions/2026-08-26-new-interaction/prompt-v3.md",
+    "summary": "Mobile Process flags repositioned conceptually; Performance became a compact evidence stage using motor, transmission, wheel and suspension assets; persistent Back to top added to the planned interaction model.",
+    "promptCompileGate": {
+      "activeModel": "gpt-5.6-terra",
+      "activeEffort": "medium",
+      "status": "PASS",
+      "evidence": "CODEX_ACTIVE_TURN_CONTEXT"
+    },
+    "executionRecommendation": {
+      "model": "gpt-5.6-sol",
+      "effort": "high"
+    },
+    "createdAt": "2026-08-26T20:31:42.947Z"
+  }
+]

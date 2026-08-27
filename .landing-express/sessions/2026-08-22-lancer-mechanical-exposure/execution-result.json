@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "mode": "REFINE",
+  "status": "COMPLETED",
+  "completedAt": "2026-08-24T17:04:14.7445337-03:00",
+  "preservationContract": "refinement-prompt-navigation.md",
+  "capabilities": {
+    "codingAgent": "PASS",
+    "browserVerification": "NOT_RUN_NOT_AUTHORIZED",
+    "higgsfield": "NOT_USED_BY_OVERRIDE"
+  },
+  "sourceFilesChanged": [
+    "src/App.jsx",
+    "src/components/Header.jsx",
+    "src/data/headerNavigation.js",
+    "src/hooks/useHeaderNavigationState.js",
+    "src/styles.css"
+  ],
+  "validation": {
+    "jsSyntax": "PASS",
+    "jsxStaticTransform": "PASS_AFTER_AUTHORIZED_NON_SANDBOX_RETRY",
+    "gitDiffCheck": "PASS_WITH_LINE_ENDING_WARNINGS",
+    "viteBuild": "NOT_RUN_NOT_AUTHORIZED",
+    "browserQa": "NOT_RUN_NOT_AUTHORIZED",
+    "singleNavigationConfigSource": true,
+    "headerReceivesExplicitProps": true,
+    "ariaCurrentLocationIsConditional": true,
+    "scrollAndResizeCleanupPresent": true,
+    "headerScrollListenerReplacedRatherThanDuplicated": true
+  },
+  "calibrationCoverage": {
+    "globalExperienceBaseline": "IMPLEMENTED_NAVIGATION_CURRENT_STATE",
+    "semanticHierarchy": "PRESERVED_PRIMARY_NAVIGATION",
+    "sectionEnrichment": "PRESERVED_NO_CHANGE",
+    "complexityCreativityBudget": "PRESERVED_NO_NEW_MECHANIC",
+    "transitionMap": "PRESERVED_NO_CHANGE",
+    "motionCapability": "UI_MOTION_REACT_CSS"
+  },
+  "generationBudget": {
+    "consumedCredits": 0,
+    "remainingCredits": 3.8
+  },
+  "acceptedPending": {
+    "assetId": "A01",
+    "implementation": "static-still-plus-svg",
+    "reason": "Temporary user-approved capability and budget constraint",
+    "regenerationAttempted": false
+  },
+  "evidence": [
+    "qa-desktop-full.png",
+    "qa-sequence-mid-refined.png",
+    "qa-mobile-hero.png",
+    "qa-mobile-sequence-final-refined.png",
+    "qa-reduced-motion.png"
+  ],
+  "evidenceStatus": "PRESERVED_FROM_PRIOR_REFINE_NOT_RECAPTURED"
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "2026-08-25-hero-authority-refinement",
+  "sessionPath": ".landing-express/sessions/2026-08-25-hero-authority-refinement",
+  "status": "COMPLETED",
+  "stage": "INTERAÇÃO CONCLUÍDA",
+  "source": "new-interaction",
+  "createdAt": "2026-08-25T00:00:00.000Z",
+  "updatedAt": "2026-08-25T00:00:00.000Z",
+  "gates": [
+    {
+      "action": "NEW_INTERACTION",
+      "profile": "GENERAL/MEDIUM",
+      "activeModel": "claude-haiku-4-5-20251001",
+      "activeEffort": "UNKNOWN",
+      "status": "UNDER_REASONING",
+      "recoveredAt": "claude-sonnet-5"
+    },
+    {
+      "action": "NEW_INTERACTION",
+      "profile": "GENERAL/MEDIUM",
+      "activeModel": "claude-sonnet-5",
+      "activeEffort": "UNKNOWN",
+      "status": "PASS",
+      "modelSource": "SURFACE_CONFIRMED_VIA_/model",
+      "effortSource": "NOT_EXPOSED_BY_CLAUDE_RUNTIME"
+    }
+  ]
+}

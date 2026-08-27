@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "2026-08-25-refinamento-visual-cinematic",
+  "status": "COMPLETED",
+  "stage": "INTERAÇÃO CONCLUÍDA",
+  "INTENT": "Refinamento cirúrgico da landing Lancer abaixo da hero: reforçar engenharia esportiva dark, clareza editorial e interações úteis, preservando hero, estrutura, links e navegação.",
+  "baselineDecision": "Working tree não commitado tratado como baseline (já continha JSX reescrito para as novas sections), em vez de reconstruir do zero.",
+  "sectionMapping": {
+    "spatialArchitecture": "WheelSequence.jsx (id=engineering) — 3 estados navegáveis (abas + setas), cena 3D R3F opcional com fallback SVG determinístico, sem scroll-lock.",
+    "constructionProcess": "DesignLanguage.jsx (id=process) — lancer-front-detail.png com lista/marcadores sincronizados."
+  },
+  "materialFindings": [
+    "styles.css ainda era o stylesheet antigo: nenhuma classe usada pelo JSX atual de WheelSequence.jsx, Performance.jsx ou pelos botões de DesignLanguage.jsx tinha regra correspondente (sections efetivamente sem estilo).",
+    "CSS morto da experiência antiga de scroll (wheel-story, wheel-sticky, sequence-*, wheel-visual/halo/assembly, technical-guides, part-label, label-active, architecture-load-line, architecture-mobile-labels, sequence-rail/footer, performance-flow/pulse, discipline-node) ainda existia no arquivo.",
+    "Arquivos órfãos da experiência antiga (WheelAssembly.jsx, CarIllustration.jsx, src/data/wheelFrames.js, src/hooks/useSectionProgress.js) e assets (wheel-exploded-a01.png, wheel-explosion.mp4, public/frames/wheel*, public/frames/wheel-generated/*) não eram mais referenciados por nada.",
+    "Hero já tinha só as duas linhas corretas (hero-load-path); nenhuma terceira linha vertical foi encontrada — hero-floor-accent é um elemento horizontal distinto e foi preservado."
+  ],
+  "changesApplied": [
+    "Removidos WheelAssembly.jsx, CarIllustration.jsx, src/data/wheelFrames.js, src/hooks/useSectionProgress.js, wheel-exploded-a01.png, wheel-explosion.mp4, public/frames/wheel/*, public/frames/wheel-generated/*.",
+    "styles.css: removido todo CSS morto da experiência antiga.",
+    "styles.css: escrito CSS novo para .architecture-* (Spatial Architecture: layout, abas, stage 3D/fallback, halo, meta) e para os elementos svg de ArchitectureFallback.jsx (fallback-layer/fallback-node via seletor por tag).",
+    "styles.css: escrito CSS novo para .performance-system/.performance-media/.performance-disciplines (Response is built: composição cinematográfica unificada com rail conectando os 4 dados, tipografia mais forte nos números principais).",
+    "styles.css: corrigido .design-points para estilizar <button> (não <div>) com escala/peso/contraste/espaçamento maiores e estado is-active.",
+    "styles.css: corrigido .process-annotation/.process-annotations para posicionar os marcadores via --marker-x/--marker-y (antes não tinham left/top e ficavam empilhados)."
+  ],
+  "verification": [
+    "npm run build passou sem erros (vite v7.3.6, 463 módulos).",
+    "Auditoria classe-a-classe: toda className usada pelos componentes ativos tem regra correspondente em styles.css.",
+    "Sem screenshot visual disponível nesta sessão (sem chromium-cli/Playwright instalado)."
+  ],
+  "createdAt": "2026-08-25T00:00:00.000Z",
+  "updatedAt": "2026-08-25T00:00:00.000Z"
+}
