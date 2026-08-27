@@ -1,0 +1,160 @@
+{
+  "INTENT": "Refinar a landing do Lancer para uma experiência mais cinematográfica, industrial e focada na resposta mecânica, sem perder a clareza dos controles.",
+  "AUDIENCE": "Pessoas interessadas em desempenho automotivo, engenharia e uma apresentação visual aspiracional.",
+  "EDITORIAL": {
+    "primaryMessage": "A performance do veículo é consequência de sistemas mecânicos conectados.",
+    "tone": "tensão urbana-industrial, preciso e controlado",
+    "hierarchy": "O carro e os detalhes mecânicos são âncoras visuais; controles devem explicar, não competir com eles."
+  },
+  "NARRATIVE": {
+    "flow": "impacto do veículo -> construção mecânica -> consequências de performance -> encerramento",
+    "transitions": [
+      "Hero para Construction process: continuidade por linhas técnicas e brilho vermelho contido.",
+      "Construction process para Performance consequence: contraste, saindo da precisão do detalhe para a tensão da pista."
+    ]
+  },
+  "STYLE": {
+    "summary": "cinematográfico industrial urbano, com agressividade equilibrada de rua/pista e legibilidade prioritária; reduzir excesso visual e preservar apenas sinais que orientem a leitura",
+    "typography": "tipografia condensada e técnica, com títulos amplos e microinformações discretas",
+    "composition": "um foco dominante por seção; controles conectados diretamente ao conteúdo que mudam",
+    "density": "moderada nos picos de atmosfera; baixa e estável nas áreas explicativas e nos controles",
+    "colorLuminance": "base quase preta, vermelho de sinalização e luz fria localizada",
+    "surfacesMateriality": "metal escuro e reflexos controlados; fumaça apenas como camada ambiental discreta",
+    "imagery": "carro como protagonista no desktop; detalhes mecânicos como protagonista na experiência móvel",
+    "motionCharacter": "aceleração curta, inércia e dissipação apenas quando há mudança solicitada; estável durante a leitura; sem efeito luminoso na entrada da Hero",
+    "interactionCharacter": "seleção inequívoca, resposta visual direta e alternativa por teclado/toque",
+    "rhythmWhitespace": "picos de tensão alternados com áreas de leitura mais calmas"
+  },
+  "SECTIONS": {
+    "backToTop": {
+      "status": "REQUIRED",
+      "decision": "Exibir somente depois de o usuário ter iniciado a rolagem; manter oculto e fora da navegação por teclado antes disso."
+    },
+    "hero": {
+      "status": "REWORK",
+      "decision": "Remover completamente o bloco Focus/Sequence e 'Scroll to inspect'. O título, a cópia e a CTA existente já comunicam o percurso mecânico sem criar um segundo bloco de navegação."
+    },
+    "constructionProcess": {
+      "status": "REWORK",
+      "decision": "Usar a imagem existente como prova principal e posicionar o indicador numérico do seletor no lado esquerdo, junto ao título. Remover a linha inferior extra e qualquer conector que pareça decoração; a relação será feita por número, estado ativo e troca de imagem."
+    },
+    "performanceConsequence": {
+      "status": "REWORK",
+      "decision": "Ao selecionar uma disciplina, trocar o detalhe com transição em duas camadas: imagem atual se dissipa e a próxima entra por máscara. O reflexo/luz só aparece durante essa solicitação de troca; no mobile, remover a imagem de carro de fundo e ocupar o palco com a imagem selecionada."
+    }
+  },
+  "CINEMATIC_OPPORTUNITIES": [
+    {
+      "name": "Atmosfera industrial controlada",
+      "status": "SELECTED",
+      "effect": "Fumaça baixa e luz rasante criam tensão de garagem/pista sem pattern repetitivo e sem competir com a leitura.",
+      "responsive": "ADAPT"
+    },
+    {
+      "name": "Transições de detalhe com inércia",
+      "status": "SELECTED",
+      "effect": "A troca de cada disciplina parece uma transferência de energia, não um simples fade.",
+      "responsive": "PRESERVE"
+    },
+    {
+      "name": "Linha de transmissão visual",
+      "status": "REMOVED",
+      "effect": "A linha inferior e os rótulos LOAD PATH / TRANSMIT foram removidos por não orientarem a navegação.",
+      "responsive": "HIDE"
+    },
+    {
+      "name": "Pico de tensão na chegada à Performance",
+      "status": "NOTED_FOR_FUTURE_TEST",
+      "effect": "Escurecimento curto e varredura de luz antes dos detalhes mecânicos; não entra no escopo atual.",
+      "responsive": "PENDING"
+    }
+  ],
+  "INTERACTIONS": {
+    "performance": "Clique, foco e toque selecionam o detalhe; estado ativo sempre legível; respeitar redução de movimento.",
+    "construction": "Cada item e seu marcador compartilham número, área e estado ativo."
+  },
+  "MOTION": {
+    "backToTop": "Entrada curta após rolagem iniciada; saída reversível ao voltar ao topo.",
+    "performance": "PRIMARY / PROGRAMMATIC_MOTION; transição determinística, reversível e reduzida quando necessário.",
+    "atmosphere": "AMBIENT / STATIC; fumaça e grão sutis, sem efeito de luz na entrada da Hero e sem competir com a leitura.",
+    "performanceSelection": "PRIMARY / PROGRAMMATIC_MOTION; reflexo de luz transitório apenas quando o usuário troca a disciplina."
+  },
+  "CONSTRAINTS": [
+    "Não mostrar o botão TOP antes de o usuário rolar.",
+    "No mobile, Performance consequence deve usar as imagens selecionáveis como palco principal e não o carro como fundo.",
+    "Manter suporte a teclado, toque e prefers-reduced-motion.",
+    "Não introduzir dependência nova se React, Motion e CSS já entregarem o efeito aprovado.",
+    "Remover pattern repetitivo e labels de navegação sem função; qualquer luz de troca deve ser acionada apenas por seleção."
+  ],
+  "PRESERVE": [
+    "Estrutura principal da landing: Header, Hero, Construction process, Performance consequence e CTA final.",
+    "Assets existentes e a imagem do Lancer como protagonista no desktop.",
+    "Item de teste futuro: pico de tensão na chegada a Performance, fora deste prompt."
+  ],
+  "TECHNICAL_REQUIREMENTS": {
+    "stackBaseline": ["Vite", "React 19", "Motion 13", "CSS", "Three.js / React Three Fiber"],
+    "approvedDependencies": [],
+    "avoidDependencies": ["motor de animação duplicado"],
+    "implementationNotes": ["Motion existente é suficiente para a entrada do botão e transições de imagem; CSS pode compor fumaça, grão e luzes industriais."],
+    "cinematicRouting": {
+      "routes": ["Motion para seleção e crossfade mascarado", "CSS para atmosfera industrial contida"],
+      "approvedDependencies": []
+    }
+  },
+  "OPEN_DECISIONS": [],
+  "creativeGovernance": {
+    "initiative": {
+      "mode": "HIGH_INITIATIVE_BOUNDED_AUTHORITY",
+      "authorityLevels": ["AUTO", "RECOMMEND", "COMPARE", "ASK"]
+    },
+    "thematicEligibility": {
+      "status": "RESOLVED",
+      "territory": "performance automotiva urbana-industrial",
+      "emotionalField": "tensão, controle e energia mecânica",
+      "culturalVisualTerritory": "garagem industrial noturna / rua molhada",
+      "desiredIntensity": "VARIABLE: alta nos picos atmosféricos e moderada na leitura",
+      "materiality": "metal escuro, fumaça baixa, poeira e luz vermelha de sinalização",
+      "typographyCharacter": "técnica e condensada",
+      "atmosphereEligibility": ["fumaça discreta", "luz rasante", "reflexos contidos"],
+      "motionCharacter": "curto, físico e determinístico",
+      "spatialCharacter": "camadas rasas e focadas no produto",
+      "interactionCharacter": "direta e informativa"
+    },
+    "intensityMap": {
+      "status": "RESOLVED",
+      "diagnosis": "CALIBRATED",
+      "dimensions": {
+        "visual": "MODERATE",
+        "motion": "LOW",
+        "atmospheric": "LOW",
+        "typographicTension": "HIGH",
+        "spatial": "MODERATE",
+        "interaction": "MODERATE"
+      }
+    },
+    "copilotEnrichment": {
+      "status": "RESOLVED",
+      "passCount": 2,
+      "opportunitiesConsidered": 4,
+      "selectedCount": 2,
+      "responsiveReviewed": true,
+      "considered": ["Atmosfera industrial", "Conexão semântica dos controles", "Transição de detalhe com inércia", "Pico de tensão na chegada à Performance"],
+      "selected": ["Atmosfera industrial controlada", "Transições de detalhe com inércia"],
+      "summary": "A direção reduz o excesso: atmosfera e transição permanecem, enquanto padrões, labels e conectores sem função são removidos; o pico de tensão foi registrado para teste futuro."
+    }
+  },
+  "enrichment": {
+    "maxMaterialLoops": 3,
+    "materialLoopsUsed": 1,
+    "activeCycle": null,
+    "history": [
+      {
+        "classification": "ENRICHMENT",
+        "decision": "Selecionadas atmosfera industrial controlada, transições de detalhe com inércia e linha de transmissão visual; pico de tensão anotado para teste futuro.",
+        "timestamp": "2026-08-27T19:12:00-03:00"
+      }
+    ],
+    "lastClassification": "ENRICHMENT",
+    "diagnosis": "CONVERGED_AFTER_REFINEMENT"
+  }
+}

@@ -99,12 +99,13 @@ export default function DesignLanguage() {
               aria-pressed={index === activeStep}
               onClick={() => setActiveStep(index)}
             >
-              <span>{step.number}</span>
+              <i aria-hidden="true">
+                <b>{step.number}</b>
+              </i>
               <p>
                 <strong>{step.title}</strong>
                 <small>{step.summary}</small>
               </p>
-              <i aria-hidden="true">↗</i>
             </button>
           ))}
         </div>

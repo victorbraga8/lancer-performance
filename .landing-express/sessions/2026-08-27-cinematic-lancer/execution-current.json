@@ -1,0 +1,35 @@
+{
+  "status": "EXECUTION_COMPLETE",
+  "promptVersion": 3,
+  "promptArtifact": ".landing-express/sessions/2026-08-27-cinematic-lancer/prompt-v3.md",
+  "executionGate": {
+    "model": "gpt-5.6-luna",
+    "effort": "low",
+    "status": "OVERRIDDEN"
+  },
+  "startedAt": "2026-08-27T20:28:00-03:00",
+  "completedAt": "2026-08-27T20:32:00-03:00",
+  "outcome": "Removido o efeito de luz animado da Hero, preservando a iluminação estática e os demais refinamentos do prompt-v3.",
+  "filesChanged": [
+    "src/components/BackToTop.jsx",
+    "src/components/Hero.jsx",
+    "src/components/DesignLanguage.jsx",
+    "src/components/Performance.jsx",
+    "src/styles.css"
+  ],
+  "validations": [
+    {
+      "name": "npm run build",
+      "status": "PASS"
+    },
+    {
+      "name": "git diff --check",
+      "status": "PASS"
+    },
+    {
+      "name": "Browser desktop/mobile interaction verification",
+      "status": "BLOCKED",
+      "reason": "O executável agent-browser não está instalado no ambiente."
+    }
+  ]
+}

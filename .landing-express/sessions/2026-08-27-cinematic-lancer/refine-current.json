@@ -1,0 +1,16 @@
+{
+  "status": "PROMPT_READY",
+  "classification": "MINOR",
+  "basePromptVersion": 2,
+  "affectedFields": ["STYLE.motionCharacter", "MOTION.atmosphere", "SECTIONS.hero"],
+  "summary": "Remover o efeito de luz da Hero; manter a troca de imagem de Performance como único acento luminoso acionado por seleção.",
+  "executionEvidenceUsed": true,
+  "createdAt": "2026-08-27T20:18:00-03:00",
+  "promptVersion": 3,
+  "promptCompileGate": {
+    "activeModel": "gpt-5.6-terra",
+    "activeEffort": "medium",
+    "status": "PASS"
+  },
+  "finalization": "PASS"
+}

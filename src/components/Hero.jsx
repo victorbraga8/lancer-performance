@@ -37,11 +37,6 @@ export default function Hero() {
         </a>
       </motion.div>
 
-      <div className="hero-meta" aria-label="Concept information">
-        <div><small>Focus</small><strong>Wheel / suspension</strong></div>
-        <div><small>Sequence</small><strong>Scroll controlled</strong></div>
-      </div>
-
       <div className="car-stage">
         <div className="studio-light" aria-hidden="true" />
         <div className="studio-rim-light" aria-hidden="true" />
@@ -56,19 +51,8 @@ export default function Hero() {
           transition={{ duration: 1.35, ease: [0.2, 0.8, 0.2, 1] }}
           style={{ y: reducedMotion ? 0 : imageY, scale: reducedMotion ? 1 : imageScale }}
         />
-        <motion.div
-          className="hero-ignition"
-          aria-hidden="true"
-          initial={reducedMotion ? false : { x: '-125%', opacity: 0 }}
-          animate={reducedMotion ? { opacity: 0 } : { x: '145%', opacity: [0, 0.72, 0] }}
-          transition={{ duration: 1.8, delay: 0.42, ease: [0.35, 0, 0.2, 1] }}
-        />
         <div className="hero-floor-accent" aria-hidden="true" />
         <p className="concept-label">Concept visualization · Mechanical study</p>
-      </div>
-
-      <div className="scroll-cue" aria-hidden="true">
-        <span>Scroll to inspect</span><i />
       </div>
     </section>
   )

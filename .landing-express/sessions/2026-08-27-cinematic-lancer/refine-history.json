@@ -1,0 +1,36 @@
+[
+  {
+    "version": 2,
+    "classification": "MATERIAL",
+    "status": "PROMPT_READY",
+    "promptArtifact": ".landing-express/sessions/2026-08-27-cinematic-lancer/prompt-v2.md",
+    "summary": "Removeu blocos e labels sem função, simplificou o seletor de Construction process e restringiu a luz de Performance a trocas solicitadas.",
+    "promptCompileGate": {
+      "activeModel": "gpt-5.6-terra",
+      "activeEffort": "medium",
+      "status": "PASS"
+    },
+    "executionRecommendation": {
+      "model": "gpt-5.6-terra",
+      "effort": "medium"
+    },
+    "createdAt": "2026-08-27T19:53:00-03:00"
+  },
+  {
+    "version": 3,
+    "classification": "MINOR",
+    "status": "PROMPT_READY",
+    "promptArtifact": ".landing-express/sessions/2026-08-27-cinematic-lancer/prompt-v3.md",
+    "summary": "Remoção do efeito luminoso da Hero, preservando a troca luminosa acionada da Performance.",
+    "promptCompileGate": {
+      "activeModel": "gpt-5.6-terra",
+      "activeEffort": "medium",
+      "status": "PASS"
+    },
+    "executionRecommendation": {
+      "model": "gpt-5.6-terra",
+      "effort": "medium"
+    },
+    "createdAt": "2026-08-27T20:18:00-03:00"
+  }
+]

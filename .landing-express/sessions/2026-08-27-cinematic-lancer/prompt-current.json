@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "artifactPath": ".landing-express/sessions/2026-08-27-cinematic-lancer/prompt-v3.md",
+  "recommendedModel": "gpt-5.6-terra",
+  "recommendedEffort": "medium",
+  "recommendationBasis": "Refinamento minor sobre v2: remoção de efeito luminoso da Hero, preservando a troca acionada de Performance e o restante do escopo; sem dependência nova."
+}

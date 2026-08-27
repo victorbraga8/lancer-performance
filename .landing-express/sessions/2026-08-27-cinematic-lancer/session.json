@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "2026-08-27-cinematic-lancer",
+  "sessionPath": ".landing-express/sessions/2026-08-27-cinematic-lancer",
+  "status": "EXECUTION_COMPLETE",
+  "stage": "EXECUÇÃO CONCLUÍDA",
+  "latestPromptVersion": 3,
+  "source": "new-interaction",
+  "createdAt": "2026-08-27T19:05:00-03:00",
+  "updatedAt": "2026-08-27T20:32:00-03:00",
+  "gates": [
+    {
+      "action": "NEW_INTERACTION",
+      "profile": "GENERAL/MEDIUM",
+      "activeModel": "gpt-5.6-terra",
+      "activeEffort": "high",
+      "status": "PASS",
+      "modelSource": "CODEX_ACTIVE_TURN_CONTEXT",
+      "effortSource": "CODEX_ACTIVE_TURN_CONTEXT"
+    },
+    {
+      "action": "ENRICHMENT",
+      "profile": "GENERAL/MEDIUM",
+      "activeModel": "gpt-5.6-terra",
+      "activeEffort": "high",
+      "status": "PASS",
+      "modelSource": "CODEX_ACTIVE_TURN_CONTEXT",
+      "effortSource": "CODEX_ACTIVE_TURN_CONTEXT"
+    },
+    {
+      "action": "PROMPT_COMPILE",
+      "profile": "GENERAL/MEDIUM",
+      "activeModel": "gpt-5.6-terra",
+      "activeEffort": "high",
+      "status": "PASS",
+      "modelSource": "CODEX_ACTIVE_TURN_CONTEXT",
+      "effortSource": "CODEX_ACTIVE_TURN_CONTEXT"
+    },
+    {
+      "action": "PROMPT_EXECUTION",
+      "profile": "GENERAL/HIGH",
+      "activeModel": "gpt-5.6-terra",
+      "activeEffort": "high",
+      "status": "PASS",
+      "modelSource": "CODEX_ACTIVE_TURN_CONTEXT",
+      "effortSource": "CODEX_ACTIVE_TURN_CONTEXT"
+    },
+    {
+      "action": "REFINE",
+      "profile": "LIGHT/LOW",
+      "activeModel": "gpt-5.6-terra",
+      "activeEffort": "high",
+      "status": "OVER_REASONING",
+      "modelSource": "CODEX_ACTIVE_TURN_CONTEXT",
+      "effortSource": "CODEX_ACTIVE_TURN_CONTEXT"
+    },
+    {
+      "action": "REFINE",
+      "profile": "LIGHT/LOW",
+      "activeModel": "gpt-5.6-luna",
+      "activeEffort": "low",
+      "status": "PASS",
+      "modelSource": "CODEX_ACTIVE_TURN_CONTEXT",
+      "effortSource": "CODEX_ACTIVE_TURN_CONTEXT"
+    },
+    {
+      "action": "PROMPT_COMPILE",
+      "profile": "GENERAL/MEDIUM",
+      "activeModel": "gpt-5.6-luna",
+      "activeEffort": "low",
+      "status": "UNDER_REASONING",
+      "modelSource": "CODEX_ACTIVE_TURN_CONTEXT",
+      "effortSource": "CODEX_ACTIVE_TURN_CONTEXT"
+    },
+    {
+      "action": "PROMPT_COMPILE",
+      "profile": "GENERAL/MEDIUM",
+      "activeModel": "gpt-5.6-terra",
+      "activeEffort": "medium",
+      "status": "PASS",
+      "modelSource": "CODEX_ACTIVE_TURN_CONTEXT",
+      "effortSource": "CODEX_ACTIVE_TURN_CONTEXT"
+    },
+    {
+      "action": "PROMPT_EXECUTION",
+      "profile": "GENERAL/MEDIUM",
+      "activeModel": "gpt-5.6-terra",
+      "activeEffort": "medium",
+      "status": "PASS",
+      "modelSource": "CODEX_ACTIVE_TURN_CONTEXT",
+      "effortSource": "CODEX_ACTIVE_TURN_CONTEXT"
+    },
+    {
+      "action": "REFINE",
+      "profile": "LIGHT/LOW",
+      "activeModel": "gpt-5.6-terra",
+      "activeEffort": "medium",
+      "status": "OVER_REASONING",
+      "modelSource": "CODEX_ACTIVE_TURN_CONTEXT",
+      "effortSource": "CODEX_ACTIVE_TURN_CONTEXT"
+    },
+    {
+      "action": "REFINE",
+      "profile": "LIGHT/LOW",
+      "activeModel": "gpt-5.6-terra",
+      "activeEffort": "medium",
+      "status": "OVERRIDDEN",
+      "modelSource": "CODEX_ACTIVE_TURN_CONTEXT",
+      "effortSource": "CODEX_ACTIVE_TURN_CONTEXT"
+    },
+    {
+      "action": "PROMPT_COMPILE",
+      "profile": "GENERAL/MEDIUM",
+      "activeModel": "gpt-5.6-terra",
+      "activeEffort": "medium",
+      "status": "PASS",
+      "modelSource": "CODEX_ACTIVE_TURN_CONTEXT",
+      "effortSource": "CODEX_ACTIVE_TURN_CONTEXT"
+    },
+    {
+      "action": "PROMPT_EXECUTION",
+      "profile": "GENERAL/MEDIUM",
+      "activeModel": "gpt-5.6-luna",
+      "activeEffort": "low",
+      "status": "UNDER_REASONING",
+      "modelSource": "CODEX_ACTIVE_TURN_CONTEXT",
+      "effortSource": "CODEX_ACTIVE_TURN_CONTEXT"
+    },
+    {
+      "action": "PROMPT_EXECUTION",
+      "profile": "GENERAL/MEDIUM",
+      "activeModel": "gpt-5.6-luna",
+      "activeEffort": "low",
+      "status": "OVERRIDDEN",
+      "modelSource": "CODEX_ACTIVE_TURN_CONTEXT",
+      "effortSource": "CODEX_ACTIVE_TURN_CONTEXT"
+    }
+  ]
+}

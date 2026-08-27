@@ -1,0 +1,23 @@
+[
+  {
+    "status": "EXECUTION_COMPLETE",
+    "promptVersion": 1,
+    "completedAt": "2026-08-27T19:24:00-03:00",
+    "outcome": "Implementados botão TOP condicionado à rolagem, metadados técnicos do Hero, relação entre seletor e processo, continuidade visual e redesign de Performance no mobile.",
+    "validationSummary": "Build e diff check passaram; validação visual automatizada bloqueada pela ausência do agent-browser."
+  },
+  {
+    "status": "EXECUTION_COMPLETE",
+    "promptVersion": 2,
+    "completedAt": "2026-08-27T20:05:00-03:00",
+    "outcome": "Removidos blocos e labels redundantes; Construction process passou a usar um único indicador numérico à esquerda; Performance removeu pattern e restringiu a luz à troca solicitada.",
+    "validationSummary": "Build e diff check passaram; validação visual automatizada bloqueada pela ausência do agent-browser."
+  },
+  {
+    "status": "EXECUTION_COMPLETE",
+    "promptVersion": 3,
+    "completedAt": "2026-08-27T20:32:00-03:00",
+    "outcome": "Removido o efeito de luz animado da Hero, preservando a iluminação estática e os demais refinamentos do prompt-v3.",
+    "validationSummary": "Build e diff check passaram; validação visual automatizada bloqueada pela ausência do agent-browser."
+  }
+]
