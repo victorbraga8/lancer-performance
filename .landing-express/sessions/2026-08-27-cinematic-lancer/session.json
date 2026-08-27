@@ -2,12 +2,13 @@
   "schemaVersion": 1,
   "sessionId": "2026-08-27-cinematic-lancer",
   "sessionPath": ".landing-express/sessions/2026-08-27-cinematic-lancer",
-  "status": "EXECUTION_COMPLETE",
+  "status": "COMPLETED",
   "stage": "EXECUÇÃO CONCLUÍDA",
+  "endStage": "INTERAÇÃO CONCLUÍDA",
   "latestPromptVersion": 3,
   "source": "new-interaction",
   "createdAt": "2026-08-27T19:05:00-03:00",
-  "updatedAt": "2026-08-27T20:32:00-03:00",
+  "updatedAt": "2026-08-27T20:36:00-03:00",
   "gates": [
     {
       "action": "NEW_INTERACTION",

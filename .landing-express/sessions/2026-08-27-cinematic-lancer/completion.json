@@ -1,0 +1,9 @@
+{
+  "status": "COMPLETED",
+  "sessionId": "2026-08-27-cinematic-lancer",
+  "promptVersion": 3,
+  "refines": 2,
+  "lastRecommendedModel": "gpt-5.6-terra",
+  "lastRecommendedEffort": "medium",
+  "completedAt": "2026-08-27T20:36:00-03:00"
+}
